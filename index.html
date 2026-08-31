@@ -371,8 +371,8 @@ opportunities without adding unnecessary complexity.
 <div class="eyebrow">Work With Nexora</div>
 <h2>Tell us what your business needs.</h2>
 <p>
-Share your requirement. We'll review the details and respond by email
-with the appropriate next steps.
+Tell us about your growth challenge. We'll review your requirement
+and respond by email with the most relevant next steps.
 </p>
 </div>
 
@@ -380,7 +380,7 @@ with the appropriate next steps.
 
 <form action="https://formsubmit.co/vishal.nexora@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="New Nexora Project Requirement">
+<input type="hidden" name="_subject" value="New Nexora Business Requirement">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 
@@ -416,7 +416,8 @@ with the appropriate next steps.
 
 <div>
 <label>Your Role</label>
-<select name="Role">
+<select name="Role" required>
+<option value="">Select your role</option>
 <option>Founder / CEO</option>
 <option>Sales</option>
 <option>Marketing</option>
@@ -427,7 +428,8 @@ with the appropriate next steps.
 
 <div>
 <label>Target Market</label>
-<select name="Market">
+<select name="Market" required>
+<option value="">Select target market</option>
 <option>United States</option>
 <option>United Kingdom</option>
 <option>Canada</option>
@@ -440,7 +442,7 @@ with the appropriate next steps.
 </div>
 
 <div>
-<label>What do you need help with?</label>
+<label>What can Nexora help you with?</label>
 
 <div class="check-grid">
 
@@ -478,34 +480,41 @@ Sales Process Automation
 </div>
 
 <div>
-<label>Describe Your Requirement</label>
-<textarea name="Requirement" placeholder="Tell us about your business, current challenge and what you want Nexora to help with..." required></textarea>
+<label>What are you trying to achieve?</label>
+<textarea
+name="Requirement"
+placeholder="Tell us about your current challenge, goals and what you'd like Nexora to help you achieve..."
+required></textarea>
 </div>
 
 <div>
 <label>Approximate Budget</label>
-<select name="Budget">
+
+<select name="Budget" required>
+<option value="">Select your budget range</option>
 <option>$500 – $1,000</option>
 <option>$1,000 – $2,500</option>
 <option>$2,500 – $5,000</option>
 <option>$5,000+</option>
 <option>Not sure yet</option>
 </select>
+
 </div>
 
 <button type="submit" class="btn primary" style="border:0;cursor:pointer">
-Submit Requirement →
+Submit My Requirement →
 </button>
 
 <div class="note">
-We review every requirement before responding.
+Your information is reviewed confidentially by the Nexora team.
 </div>
 
 </form>
 
 </div>
 </div>
-  </section>
+</section>
+
 <!-- WHY NEXORA -->
 <section>
 <div class="container">
