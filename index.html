@@ -1,1 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Nexora — B2B Growth & AI Automation</title>
+<meta name="description" content="Nexora helps B2B companies generate qualified leads, improve outbound sales and automate repetitive workflows.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+background:#05070b;color:#f5f7fb;line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1140px,92%);margin:auto}
+
+nav{
+position:fixed;top:0;left:0;right:0;z-index:999;
+background:rgba(5,7,11,.82);backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.07)
+}
+.nav{
+height:74px;display:flex;align-items:center;justify-content:space-between
+}
+.logo{font-size:23px;font-weight:800;letter-spacing:-1px}
+.logo span{color:#7c83ff}
+.links{display:flex;align-items:center;gap:28px}
+.links a{font-size:14px;color:#a9b0bd;transition:.25s}
+.links a:hover{color:#fff}
+.nav-cta{
+background:#fff;color:#05070b!important;
+padding:10px 17px;border-radius:9px;font-weight:700
+}
+
+.hero{
+min-height:100vh;display:flex;align-items:center;
+padding:150px 0 100px;position:relative;overflow:hidden
+}
+.hero:before{
+content:"";position:absolute;width:600px;height:600px;
+left:50%;top:80px;transform:translateX(-50%);
+background:rgba(86,99,255,.16);filter:blur(130px);border-radius:50%
+}
+.hero-content{
+position:relative;text-align:center;max-width:920px;margin:auto
+}
+.badge{
+display:inline-block;padding:8px 15px;border-radius:100px;
+border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.035);
+color:#aeb6c4;font-size:12px;margin-bottom:25px
+}
+h1{
+font-size:clamp(45px,7vw,82px);line-height:1.02;
+letter-spacing:-4px;margin-bottom:25px
+}
+.gradient{
+background:linear-gradient(90deg,#fff,#858dff);
+-webkit-background-clip:text;color:transparent
+}
+.hero p{
+max-width:700px;margin:auto;color:#969fac;font-size:18px
+}
+.buttons{
+display:flex;justify-content:center;gap:13px;
+margin-top:34px;flex-wrap:wrap
+}
+.btn{
+display:inline-block;padding:14px 22px;border-radius:10px;
+font-size:14px;font-weight:700;transition:.25s
+}
+.primary{background:#fff;color:#05070b}
+.primary:hover{transform:translateY(-2px)}
+.secondary{
+border:1px solid rgba(255,255,255,.13);color:#e9ecf2
+}
+.secondary:hover{background:rgba(255,255,255,.05)}
+.trust{
+margin-top:45px;color:#697280;font-size:11px;
+letter-spacing:1.4px;text-transform:uppercase
+}
+
+section{
+padding:105px 0;border-top:1px solid rgba(255,255,255,.06)
+}
+.heading{max-width:720px;margin-bottom:50px}
+.eyebrow{
+color:#8088ff;font-size:12px;font-weight:800;
+letter-spacing:1.6px;text-transform:uppercase
+}
+.heading h2{
+font-size:clamp(33px,5vw,50px);
+line-height:1.1;letter-spacing:-2px;margin-top:12px
+}
+.heading p{color:#8f98a5;margin-top:15px}
+
+.grid{
+display:grid;grid-template-columns:repeat(2,1fr);gap:18px
+}
+.card{
+padding:32px;border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+transition:.3s
+}
+.card:hover{
+transform:translateY(-5px);
+border-color:rgba(255,255,255,.18)
+}
+.num{color:#7881ff;font-weight:800;margin-bottom:20px}
+.card h3{font-size:21px;margin-bottom:9px}
+.card p{color:#8e97a4;font-size:14px}
+
+.industry-grid{
+display:grid;grid-template-columns:repeat(4,1fr);gap:14px
+}
+.industry{
+padding:25px 15px;text-align:center;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;background:rgba(255,255,255,.025);
+color:#cbd1da;font-size:14px
+}
+
+.process{
+display:grid;grid-template-columns:repeat(5,1fr);gap:10px
+}
+.step{
+padding:24px 17px;border-left:1px solid rgba(255,255,255,.1)
+}
+.step strong{display:block;margin-bottom:8px;font-size:14px}
+.step p{font-size:13px;color:#858e9b}
+
+.form-box{
+max-width:850px;margin:auto;padding:40px;
+border:1px solid rgba(255,255,255,.09);
+border-radius:22px;background:rgba(255,255,255,.025)
+}
+form{display:grid;gap:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{
+display:block;color:#c7cdd7;font-size:13px;margin-bottom:7px
+}
+input,select,textarea{
+width:100%;padding:14px;border-radius:9px;
+border:1px solid rgba(255,255,255,.1);
+background:#0b0e14;color:#fff;outline:none;font-size:14px
+}
+input:focus,select:focus,textarea:focus{
+border-color:#777fff
+}
+textarea{min-height:145px;resize:vertical}
+
+.check-grid{
+display:grid;grid-template-columns:repeat(2,1fr);gap:9px
+}
+.check{
+padding:12px;border:1px solid rgba(255,255,255,.08);
+border-radius:9px;color:#aeb6c1;font-size:13px;
+display:flex;align-items:center
+}
+.check input{width:auto;margin-right:9px}
+
+.note{
+font-size:12px;color:#697380;text-align:center;margin-top:12px
+}
+
+.footer{
+padding:45px 0;border-top:1px solid rgba(255,255,255,.06);
+color:#707987;font-size:13px
+}
+.footer-inner{
+display:flex;justify-content:space-between;gap:20px
+}
+.footer strong{color:#fff;font-size:16px}
+
+@media(max-width:800px){
+.links{display:none}
+h1{letter-spacing:-2.5px}
+.grid,.industry-grid,.process,.row,.check-grid{
+grid-template-columns:1fr
+}
+.form-box{padding:24px}
+section{padding:75px 0}
+.footer-inner{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav">
+<a href="#" class="logo">NEXORA<span>.</span></a>
+
+<div class="links">
+<a href="#services">Services</a>
+<a href="#industries">Industries</a>
+<a href="#process">How We Work</a>
+<a href="#requirement" class="nav-cta">Start a Project</a>
+</div>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container hero-content">
+
+<div class="badge">
+B2B GROWTH • LEAD GENERATION • AI AUTOMATION
+</div>
+
+<h1>
+Turn your growth goals into a
+<span class="gradient">predictable pipeline.</span>
+</h1>
+
+<p>
+Nexora helps growing B2B companies generate qualified opportunities,
+improve outbound sales and automate repetitive business workflows.
+</p>
+
+<div class="buttons">
+<a href="#requirement" class="btn primary">
+Tell Us Your Requirement →
+</a>
+
+<a href="#services" class="btn secondary">
+Explore Services
+</a>
+</div>
+
+<div class="trust">
+B2B Lead Generation · Outbound Sales · AI Automation · Workflow Automation
+</div>
+
+</div>
+</header>
+
+<section id="services">
+<div class="container">
+
+<div class="heading">
+<div class="eyebrow">What We Do</div>
+<h2>Practical growth systems for ambitious B2B teams.</h2>
+<p>
+We combine targeted prospecting, outbound execution and automation
+to help businesses create more consistent opportunities.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="num">01</div>
+<h3>B2B Lead Generation</h3>
+<p>
+Find relevant companies and decision-makers based on your ideal
+customer profile and target market.
+</p>
+</div>
+
+<div class="card">
+<div class="num">02</div>
+<h3>Outbound Sales</h3>
+<p>
+Build structured outbound campaigns designed to start conversations
+with potential customers.
+</p>
+</div>
+
+<div class="card">
+<div class="num">03</div>
+<h3>AI Automation</h3>
+<p>
+Automate repetitive sales and business tasks using practical AI-powered
+workflows.
+</p>
+</div>
+
+<div class="card">
+<div class="num">04</div>
+<h3>Sales Pipeline Development</h3>
+<p>
+Create a repeatable prospecting process that turns outreach into
+measurable business opportunities.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="industries">
+<div class="container">
+
+<div class="heading">
+<div class="eyebrow">Who We Help</div>
+<h2>Built for growing B2B companies.</h2>
+<p>
+Our services are designed for teams that need more qualified
+opportunities without adding unnecessary complexity.
+</p>
+</div>
+
+<div class="industry-grid">
+<div class="industry">B2B SaaS</div>
+<div class="industry">IT & Software</div>
+<div class="industry">Digital Agencies</div>
+<div class="industry">Professional Services</div>
+</div>
+
+</div>
+</section>
+
+<section id="process">
+<div class="container">
+
+<div class="heading">
+<div class="eyebrow">How We Work</div>
+<h2>A simple process from requirement to execution.</h2>
+</div>
+
+<div class="process">
+
+<div class="step">
+<strong>01 — Understand</strong>
+<p>Understand your business, market and growth objectives.</p>
+</div>
+
+<div class="step">
+<strong>02 — Strategy</strong>
+<p>Create a focused approach based on your requirements.</p>
+</div>
+
+<div class="step">
+<strong>03 — Execute</strong>
+<p>Implement the agreed lead generation or automation solution.</p>
+</div>
+
+<div class="step">
+<strong>04 — Optimize</strong>
+<p>Review performance and improve the process continuously.</p>
+</div>
+
+<div class="step">
+<strong>05 — Scale</strong>
+<p>Expand successful systems as your business grows.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="requirement">
+<div class="container">
+
+<div class="heading">
+<div class="eyebrow">Work With Nexora</div>
+<h2>Tell us what your business needs.</h2>
+<p>
+Share your requirement. We'll review the details and respond by email
+with the appropriate next steps.
+</p>
+</div>
+
+<div class="form-box">
+
+<form action="https://formsubmit.co/vishal.nexora@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="New Nexora Project Requirement">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
+<div class="row">
+
+<div>
+<label>Your Name</label>
+<input type="text" name="Name" placeholder="Full name" required>
+</div>
+
+<div>
+<label>Work Email</label>
+<input type="email" name="Email" placeholder="name@company.com" required>
+</div>
+
+</div>
+
+<div class="row">
+
+<div>
+<label>Company Name</label>
+<input type="text" name="Company" placeholder="Company name" required>
+</div>
+
+<div>
+<label>Company Website</label>
+<input type="url" name="Website" placeholder="https://yourcompany.com">
+</div>
+
+</div>
+
+<div class="row">
+
+<div>
+<label>Your Role</label>
+<select name="Role">
+<option>Founder / CEO</option>
+<option>Sales</option>
+<option>Marketing</option>
+<option>Operations</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Target Market</label>
+<select name="Market">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Canada</option>
+<option>UAE</option>
+<option>Europe</option>
+<option>Other</option>
+</select>
+</div>
+
+</div>
+
+<div>
+<label>What do you need help with?</label>
+
+<div class="check-grid">
+
+<label class="check">
+<input type="checkbox" name="Service[]" value="B2B Lead Generation">
+B2B Lead Generation
+</label>
+
+<label class="check">
+<input type="checkbox" name="Service[]" value="Outbound Sales">
+Outbound Sales
+</label>
+
+<label class="check">
+<input type="checkbox" name="Service[]" value="Appointment Setting">
+Appointment Setting
+</label>
+
+<label class="check">
+<input type="checkbox" name="Service[]" value="AI Automation">
+AI Automation
+</label>
+
+<label class="check">
+<input type="checkbox" name="Service[]" value="Workflow Automation">
+Workflow Automation
+</label>
+
+<label class="check">
+<input type="checkbox" name="Service[]" value="Sales Process Automation">
+Sales Process Automation
+</label>
+
+</div>
+</div>
+
+<div>
+<label>Describe Your Requirement</label>
+<textarea name="Requirement" placeholder="Tell us about your business, current challenge and what you want Nexora to help with..." required></textarea>
+</div>
+
+<div>
+<label>Approximate Budget</label>
+<select name="Budget">
+<option>$500 – $1,000</option>
+<option>$1,000 – $2,500</option>
+<option>$2,500 – $5,000</option>
+<option>$5,000+</option>
+<option>Not sure yet</option>
+</select>
+</div>
+
+<button type="submit" class="btn primary" style="border:0;cursor:pointer">
+Submit Requirement →
+</button>
+
+<div class="note">
+We review every requirement before responding.
+</div>
+
+</form>
+
+</div>
+</div>
+  </section>
+<!-- WHY NEXORA -->
+<section>
+<div class="container">
+
+<div class="heading">
+<div class="eyebrow">Why Nexora</div>
+<h2>Focused on outcomes that actually matter.</h2>
+<p>
+No unnecessary complexity. Just practical systems designed around
+your business goals.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="num">01</div>
+<h3>Targeted</h3>
+<p>
+We focus on the right companies, decision-makers and opportunities
+for your business.
+</p>
+</div>
+
+<div class="card">
+<div class="num">02</div>
+<h3>Data-Driven</h3>
+<p>
+Our approach uses relevant business information to improve
+prospecting and decision-making.
+</p>
+</div>
+
+<div class="card">
+<div class="num">03</div>
+<h3>Human + AI</h3>
+<p>
+AI handles repetitive work while important business decisions
+remain under human control.
+</p>
+</div>
+
+<div class="card">
+<div class="num">04</div>
+<h3>Built to Scale</h3>
+<p>
+The systems we create can evolve with your team, market and
+business requirements.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+<div class="container">
+
+<div class="heading" style="margin:auto;text-align:center;">
+
+<div class="eyebrow">Start a Conversation</div>
+
+<h2>Have a B2B growth challenge?</h2>
+
+<p>
+Tell us what you're trying to achieve and let Nexora
+help you build the right growth system.
+</p>
+
+<div class="buttons">
+<a href="#requirement" class="btn primary">
+Tell Us Your Requirement →
+</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="container footer-inner">
+
+<div>
+<strong>NEXORA<span style="color:#8088ff;">.</span></strong>
+<br>
+B2B Lead Generation & AI Automation
+</div>
+
+<div>
+© 2026 Nexora. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
