@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nexora-growth.github.io/nexora-website/sitemap.xml
