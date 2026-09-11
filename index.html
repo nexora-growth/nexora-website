@@ -1,627 +1,1566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HPPMDGZ9FN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HPPMDGZ9FN');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="nKYk0bD19TtxV0k4usBASMVkgiPdF_o2oRiZhiwUbkQ" />
-<title>Nexora | B2B Lead Generation & AI Automation Agency</title>
-<meta name="description" content="Nexora helps B2B SaaS, software companies and digital agencies generate qualified leads, build outbound sales pipelines and automate repetitive sales workflows.">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
+<meta name="description" content="Nexora — B2B growth systems, outbound pipeline generation and AI-powered workflow automation.">
+<meta name="theme-color" content="#07080c">
+<meta property="og:title" content="Nexora | Growth Systems">
+<meta property="og:description" content="Build pipeline. Create leverage. Scale with systems.">
 <meta property="og:url" content="https://nexora-growth.github.io/nexora-website/">
-<meta property="og:title" content="Nexora | B2B Lead Generation & AI Automation Agency">
-<meta property="og:description" content="Nexora helps B2B companies generate qualified leads, build outbound sales pipelines and automate repetitive workflows.">
-<meta property="og:site_name" content="Nexora">
+<title>Nexora | Growth Systems</title>
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nexora | B2B Lead Generation & AI Automation Agency">
-<meta name="twitter:description" content="B2B lead generation, outbound sales and AI workflow automation for growing companies.">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-background:#05070b;color:#f5f7fb;line-height:1.6;
+:root{
+  --bg:#07080c;
+  --bg2:#0b0d13;
+  --panel:#10131a;
+  --panel2:#0d1016;
+  --line:rgba(255,255,255,.09);
+  --line2:rgba(255,255,255,.05);
+  --text:#f4f6fb;
+  --muted:#969dac;
+  --muted2:#707785;
+  --accent:#ffffff;
+  --green:#72e6a0;
+  --blue:#78a9ff;
+  --purple:#a78bfa;
+  --shadow:0 30px 90px rgba(0,0,0,.45);
+  --radius:24px;
 }
-a{text-decoration:none;color:inherit}
-.container{width:min(1140px,92%);margin:auto}
 
-nav{
-position:fixed;top:0;left:0;right:0;z-index:999;
-background:rgba(5,7,11,.82);backdrop-filter:blur(20px);
-border-bottom:1px solid rgba(255,255,255,.07)
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 80% 0%,rgba(88,101,255,.10),transparent 28%),
+    radial-gradient(circle at 10% 20%,rgba(114,230,160,.05),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1180px,calc(100% - 40px));
+  margin:auto;
+}
+
 .nav{
-height:74px;display:flex;align-items:center;justify-content:space-between
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid var(--line2);
+  background:rgba(7,8,12,.78);
+  backdrop-filter:blur(18px);
 }
-.logo{font-size:23px;font-weight:800;letter-spacing:-1px}
-.logo span{color:#7c83ff}
-.links{display:flex;align-items:center;gap:28px}
-.links a{font-size:14px;color:#a9b0bd;transition:.25s}
-.links a:hover{color:#fff}
+
+.nav-inner{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+
+.logo-mark{
+  width:34px;
+  height:34px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#171a22,#0a0c11);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.logo-mark span{
+  width:13px;
+  height:13px;
+  border-radius:4px;
+  background:#fff;
+  display:block;
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:#aeb3be;
+  font-size:14px;
+  transition:.25s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+}
+
 .nav-cta{
-background:#fff;color:#05070b!important;
-padding:10px 17px;border-radius:9px;font-weight:700
+  border:1px solid rgba(255,255,255,.14);
+  padding:10px 16px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:700;
+  background:rgba(255,255,255,.04);
 }
 
 .hero{
-min-height:100vh;display:flex;align-items:center;
-padding:150px 0 100px;position:relative;overflow:hidden
+  position:relative;
+  padding:110px 0 80px;
 }
-.hero:before{
-content:"";position:absolute;width:600px;height:600px;
-left:50%;top:80px;transform:translateX(-50%);
-background:rgba(86,99,255,.16);filter:blur(130px);border-radius:50%
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:70px;
+  align-items:center;
 }
-.hero-content{
-position:relative;text-align:center;max-width:920px;margin:auto
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  border-radius:999px;
+  padding:8px 12px;
+  color:#c5cad4;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
-.badge{
-display:inline-block;padding:8px 15px;border-radius:100px;
-border:1px solid rgba(255,255,255,.1);
-background:rgba(255,255,255,.035);
-color:#aeb6c4;font-size:12px;margin-bottom:25px
+
+.eyebrow-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 14px rgba(114,230,160,.65);
 }
-h1{
-font-size:clamp(45px,7vw,82px);line-height:1.02;
-letter-spacing:-4px;margin-bottom:25px
+
+.hero h1{
+  margin-top:24px;
+  font-size:clamp(50px,6.5vw,86px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  max-width:760px;
 }
-.gradient{
-background:linear-gradient(90deg,#fff,#858dff);
--webkit-background-clip:text;color:transparent
+
+.hero h1 span{
+  color:#8f96a5;
 }
-.hero p{
-max-width:700px;margin:auto;color:#969fac;font-size:18px
+
+.hero-text{
+  margin-top:26px;
+  max-width:620px;
+  font-size:18px;
+  color:#aeb3be;
+  line-height:1.75;
 }
-.buttons{
-display:flex;justify-content:center;gap:13px;
-margin-top:34px;flex-wrap:wrap
+
+.hero-actions{
+  margin-top:34px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
+
 .btn{
-display:inline-block;padding:14px 22px;border-radius:10px;
-font-size:14px;font-weight:700;transition:.25s
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 20px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+  transition:.25s;
 }
-.primary{background:#fff;color:#05070b}
-.primary:hover{transform:translateY(-2px)}
-.secondary{
-border:1px solid rgba(255,255,255,.13);color:#e9ecf2
+
+.btn-primary{
+  background:#fff;
+  color:#08090c;
 }
-.secondary:hover{background:rgba(255,255,255,.05)}
-.trust{
-margin-top:45px;color:#697280;font-size:11px;
-letter-spacing:1.4px;text-transform:uppercase
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 35px rgba(255,255,255,.12);
+}
+
+.btn-secondary{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  color:#e8ebf1;
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,.07);
+}
+
+.hero-note{
+  margin-top:17px;
+  font-size:12px;
+  color:#656c79;
+}
+
+.dashboard{
+  position:relative;
+  border:1px solid rgba(255,255,255,.11);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015)),
+    #0b0d12;
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.dashboard:before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:linear-gradient(120deg,rgba(120,169,255,.18),transparent 35%,rgba(167,139,250,.10));
+  pointer-events:none;
+}
+
+.dash-top{
+  height:48px;
+  border-bottom:1px solid var(--line2);
+  display:flex;
+  align-items:center;
+  padding:0 18px;
+  gap:7px;
+}
+
+.window-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#383d48;
+}
+
+.dash-title{
+  margin-left:auto;
+  margin-right:auto;
+  font-size:11px;
+  color:#707785;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.dash-body{
+  padding:22px;
+}
+
+.dash-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:20px;
+}
+
+.dash-heading small{
+  color:#707785;
+  font-size:11px;
+}
+
+.dash-heading strong{
+  font-size:16px;
+}
+
+.metric-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.metric{
+  padding:15px;
+  border:1px solid var(--line2);
+  border-radius:15px;
+  background:rgba(255,255,255,.025);
+}
+
+.metric label{
+  display:block;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#6e7583;
+  margin-bottom:7px;
+}
+
+.metric b{
+  font-size:21px;
+  letter-spacing:-.03em;
+}
+
+.metric em{
+  display:block;
+  margin-top:3px;
+  color:var(--green);
+  font-size:10px;
+  font-style:normal;
+}
+
+.pipeline{
+  margin-top:12px;
+  border:1px solid var(--line2);
+  border-radius:18px;
+  padding:18px;
+  background:rgba(255,255,255,.018);
+}
+
+.pipeline-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.pipeline-title span{
+  color:#777e8b;
+  font-size:11px;
+}
+
+.pipeline-bars{
+  display:flex;
+  gap:8px;
+  align-items:flex-end;
+  height:125px;
+}
+
+.bar{
+  flex:1;
+  border-radius:8px 8px 4px 4px;
+  background:linear-gradient(to top,rgba(120,169,255,.22),rgba(120,169,255,.72));
+  border:1px solid rgba(120,169,255,.15);
+}
+
+.bar:nth-child(1){height:34%}
+.bar:nth-child(2){height:48%}
+.bar:nth-child(3){height:42%}
+.bar:nth-child(4){height:66%}
+.bar:nth-child(5){height:76%}
+.bar:nth-child(6){height:92%}
+
+.bar-labels{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+
+.bar-labels span{
+  flex:1;
+  text-align:center;
+  color:#5e6571;
+  font-size:9px;
+}
+
+.activity{
+  margin-top:12px;
+  display:grid;
+  gap:8px;
+}
+
+.activity-item{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:11px 12px;
+  border:1px solid var(--line2);
+  border-radius:12px;
+  background:rgba(255,255,255,.018);
+}
+
+.activity-icon{
+  width:27px;
+  height:27px;
+  border-radius:8px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.055);
+  color:#b9c0cc;
+  font-size:11px;
+}
+
+.activity-copy{
+  flex:1;
+}
+
+.activity-copy b{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+}
+
+.activity-copy span{
+  display:block;
+  color:#666d79;
+  font-size:9px;
+  margin-top:2px;
+}
+
+.activity-status{
+  font-size:9px;
+  color:var(--green);
 }
 
 section{
-padding:105px 0;border-top:1px solid rgba(255,255,255,.06)
+  padding:105px 0;
 }
-.heading{max-width:720px;margin-bottom:50px}
-.eyebrow{
-color:#8088ff;font-size:12px;font-weight:800;
-letter-spacing:1.6px;text-transform:uppercase
-}
-.heading h2{
-font-size:clamp(33px,5vw,50px);
-line-height:1.1;letter-spacing:-2px;margin-top:12px
-}
-.heading p{color:#8f98a5;margin-top:15px}
 
-.grid{
-display:grid;grid-template-columns:repeat(2,1fr);gap:18px
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:30px;
+  margin-bottom:42px;
 }
-.card{
-padding:32px;border:1px solid rgba(255,255,255,.08);
-border-radius:18px;
-background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
-transition:.3s
-}
-.card:hover{
-transform:translateY(-5px);
-border-color:rgba(255,255,255,.18)
-}
-.num{color:#7881ff;font-weight:800;margin-bottom:20px}
-.card h3{font-size:21px;margin-bottom:9px}
-.card p{color:#8e97a4;font-size:14px}
 
-.industry-grid{
-display:grid;grid-template-columns:repeat(4,1fr);gap:14px
+.kicker{
+  color:#777e8b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:12px;
 }
-.industry{
-padding:25px 15px;text-align:center;
-border:1px solid rgba(255,255,255,.08);
-border-radius:14px;background:rgba(255,255,255,.025);
-color:#cbd1da;font-size:14px
+
+.section-head h2{
+  font-size:clamp(34px,4vw,55px);
+  letter-spacing:-.045em;
+  line-height:1.02;
+  max-width:650px;
+}
+
+.section-head p{
+  color:#858c99;
+  max-width:420px;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.system{
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(120,169,255,.07),transparent 38%),
+    rgba(255,255,255,.018);
+  padding:28px;
+  overflow:hidden;
+}
+
+.system-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.system-card{
+  position:relative;
+  min-height:180px;
+  padding:22px;
+  border:1px solid var(--line2);
+  border-radius:18px;
+  background:rgba(7,8,12,.72);
+  transition:.3s;
+}
+
+.system-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.14);
+  background:rgba(255,255,255,.035);
+}
+
+.system-number{
+  font-size:10px;
+  color:#606774;
+  letter-spacing:.1em;
+}
+
+.system-card h3{
+  margin-top:38px;
+  font-size:18px;
+  letter-spacing:-.02em;
+}
+
+.system-card p{
+  margin-top:9px;
+  color:#777e8b;
+  font-size:12px;
+  line-height:1.65;
+}
+
+.system-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);
+  margin:24px 0;
+}
+
+.flow{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+  gap:8px;
+}
+
+.flow-node{
+  text-align:center;
+  padding:16px 10px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+}
+
+.flow-node strong{
+  display:block;
+  font-size:13px;
+}
+
+.flow-node span{
+  color:#646b78;
+  font-size:10px;
+}
+
+.flow-arrow{
+  text-align:center;
+  color:#555c68;
+  font-size:18px;
+}
+
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.work-card{
+  padding:27px;
+  min-height:220px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  transition:.3s;
+}
+
+.work-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.15);
+}
+
+.work-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  color:#cdd2dc;
+  font-size:13px;
+}
+
+.work-card h3{
+  margin-top:25px;
+  font-size:18px;
+}
+
+.work-card p{
+  margin-top:10px;
+  color:#7d8490;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.work-list{
+  margin-top:17px;
+  display:grid;
+  gap:7px;
+}
+
+.work-list span{
+  font-size:11px;
+  color:#9298a4;
+}
+
+.work-list span:before{
+  content:"✓";
+  color:var(--green);
+  margin-right:8px;
+}
+
+.audience{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.audience-card{
+  padding:32px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:rgba(255,255,255,.02);
+}
+
+.audience-card h3{
+  font-size:22px;
+  letter-spacing:-.025em;
+}
+
+.audience-card p{
+  color:#7d8490;
+  font-size:13px;
+  line-height:1.75;
+  margin-top:10px;
+}
+
+.tag-row{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+
+.tag{
+  padding:7px 10px;
+  border-radius:9px;
+  border:1px solid var(--line2);
+  background:rgba(255,255,255,.025);
+  color:#969daa;
+  font-size:10px;
 }
 
 .process{
-display:grid;grid-template-columns:repeat(5,1fr);gap:10px
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
 }
-.step{
-padding:24px 17px;border-left:1px solid rgba(255,255,255,.1)
-}
-.step strong{display:block;margin-bottom:8px;font-size:14px}
-.step p{font-size:13px;color:#858e9b}
 
-.form-box{
-max-width:850px;margin:auto;padding:40px;
-border:1px solid rgba(255,255,255,.09);
-border-radius:22px;background:rgba(255,255,255,.025)
+.process-card{
+  padding:22px;
+  border-top:1px solid rgba(255,255,255,.12);
 }
-form{display:grid;gap:18px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-label{
-display:block;color:#c7cdd7;font-size:13px;margin-bottom:7px
-}
-input,select,textarea{
-width:100%;padding:14px;border-radius:9px;
-border:1px solid rgba(255,255,255,.1);
-background:#0b0e14;color:#fff;outline:none;font-size:14px
-}
-input:focus,select:focus,textarea:focus{
-border-color:#777fff
-}
-textarea{min-height:145px;resize:vertical}
 
-.check-grid{
-display:grid;grid-template-columns:repeat(2,1fr);gap:9px
+.process-card .num{
+  color:#555c68;
+  font-size:11px;
 }
-.check{
-padding:12px;border:1px solid rgba(255,255,255,.08);
-border-radius:9px;color:#aeb6c1;font-size:13px;
-display:flex;align-items:center
-}
-.check input{width:auto;margin-right:9px}
 
-.note{
-font-size:12px;color:#697380;text-align:center;margin-top:12px
+.process-card h3{
+  margin-top:30px;
+  font-size:16px;
+}
+
+.process-card p{
+  color:#727985;
+  font-size:11px;
+  line-height:1.7;
+  margin-top:8px;
+}
+
+.proof{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.proof-card{
+  padding:32px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+}
+
+.proof-card h3{
+  font-size:23px;
+  letter-spacing:-.03em;
+}
+
+.proof-card p{
+  margin-top:11px;
+  color:#7d8490;
+  font-size:13px;
+  line-height:1.75;
+}
+
+.proof-points{
+  margin-top:23px;
+  display:grid;
+  gap:11px;
+}
+
+.proof-point{
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+
+.proof-point i{
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  border-radius:6px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  color:var(--green);
+  font-size:9px;
+  font-style:normal;
+}
+
+.proof-point span{
+  color:#969daa;
+  font-size:12px;
+}
+
+.cta{
+  padding:0 0 110px;
+}
+
+.cta-box{
+  position:relative;
+  overflow:hidden;
+  padding:65px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(120,169,255,.13),transparent 42%),
+    rgba(255,255,255,.025);
+}
+
+.cta-box h2{
+  font-size:clamp(36px,5vw,64px);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+.cta-box p{
+  max-width:600px;
+  margin:18px auto 0;
+  color:#858c98;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.cta-box .btn{
+  margin-top:28px;
 }
 
 .footer{
-padding:45px 0;border-top:1px solid rgba(255,255,255,.06);
-color:#707987;font-size:13px
+  border-top:1px solid var(--line2);
+  padding:35px 0;
 }
-.footer-inner{
-display:flex;justify-content:space-between;gap:20px
-}
-.footer strong{color:#fff;font-size:16px}
 
-@media(max-width:800px){
-.links{display:none}
-h1{letter-spacing:-2.5px}
-.grid,.industry-grid,.process,.row,.check-grid{
-grid-template-columns:1fr
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
-.form-box{padding:24px}
-section{padding:75px 0}
-.footer-inner{flex-direction:column}
+
+.footer-left{
+  color:#626976;
+  font-size:11px;
+}
+
+.footer-brand{
+  color:#d9dde5;
+  font-weight:800;
+  letter-spacing:.12em;
+  margin-bottom:4px;
+}
+
+.footer-right{
+  display:flex;
+  gap:20px;
+}
+
+.footer-right a{
+  color:#626976;
+  font-size:11px;
+}
+
+.footer-right a:hover{
+  color:#fff;
+}
+
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .system-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .work-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .process{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+  .container{
+    width:min(100% - 28px,1180px);
+  }
+
+  .nav-inner{
+    height:68px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding:75px 0 55px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .hero-text{
+    font-size:16px;
+  }
+
+  section{
+    padding:75px 0;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head p{
+    margin-top:16px;
+  }
+
+  .system{
+    padding:14px;
+  }
+
+  .system-grid{
+    grid-template-columns:1fr;
+  }
+
+  .flow{
+    grid-template-columns:1fr;
+  }
+
+  .flow-arrow{
+    transform:rotate(90deg);
+  }
+
+  .work-grid,
+  .audience,
+  .proof{
+    grid-template-columns:1fr;
+  }
+
+  .process{
+    grid-template-columns:1fr;
+  }
+
+  .metric-row{
+    grid-template-columns:1fr;
+  }
+
+  .cta-box{
+    padding:45px 22px;
+  }
+
+  .footer-inner{
+    display:block;
+  }
+
+  .footer-right{
+    margin-top:18px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-<div class="container nav">
-<a href="#" class="logo">NEXORA<span>.</span></a>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"><span></span></span>
+      NEXORA
+    </a>
 
-<div class="links">
-<a href="#services">Services</a>
-<a href="#industries">Industries</a>
-<a href="#process">How We Work</a>
-<a href="#requirement" class="nav-cta">Start a Project</a>
-</div>
-</div>
+    <div class="nav-links">
+      <a href="#system">System</a>
+      <a href="#work">What We Do</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="mailto:vishal.nexora@gmail.com?subject=Nexora%20Growth%20Discussion">
+      Start a Conversation
+    </a>
+  </div>
 </nav>
 
-<header class="hero">
-<div class="container hero-content">
+<main>
 
-<div class="badge">
-B2B GROWTH • LEAD GENERATION • AI AUTOMATION
-</div>
+<section class="hero">
+  <div class="container hero-grid">
 
-<h1>
-Turn your growth goals into a
-<span class="gradient">predictable pipeline.</span>
-</h1>
+    <div>
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        B2B Growth & Operations
+      </div>
 
-<p>
-Nexora helps growing B2B companies generate qualified opportunities,
-improve outbound sales and automate repetitive business workflows.
-</p>
+      <h1>
+        Growth should be a <span>system.</span>
+      </h1>
 
-<div class="buttons">
-<a href="#requirement" class="btn primary">
-Tell Us Your Requirement →
-</a>
+      <p class="hero-text">
+        Nexora helps growing B2B companies build targeted outbound pipelines,
+        identify the right decision-makers, and turn repetitive growth work
+        into structured systems.
+      </p>
 
-<a href="#services" class="btn secondary">
-Explore Services
-</a>
-</div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Build Your Pipeline</a>
+        <a href="#work" class="btn btn-secondary">See What We Do</a>
+      </div>
 
-<div class="trust">
-B2B Lead Generation · Outbound Sales · AI Automation · Workflow Automation
-</div>
+      <p class="hero-note">
+        Research → Targeting → Outreach → Qualification → Optimization
+      </p>
+    </div>
 
-</div>
-</header>
+    <div class="dashboard">
 
-<section id="services">
-<div class="container">
+      <div class="dash-top">
+        <span class="window-dot"></span>
+        <span class="window-dot"></span>
+        <span class="window-dot"></span>
+        <span class="dash-title">Nexora Growth Command</span>
+      </div>
 
-<div class="heading">
-<div class="eyebrow">What We Do</div>
-<h2>Practical growth systems for ambitious B2B teams.</h2>
-<p>
-We help growing B2B companies find the right prospects, start
-meaningful conversations and streamline repetitive sales work.
-</p>
-</div>
+      <div class="dash-body">
 
-<div class="grid">
+        <div class="dash-heading">
+          <div>
+            <small>Pipeline overview</small>
+            <br>
+            <strong>Outbound Growth System</strong>
+          </div>
+          <small>Live workflow</small>
+        </div>
 
-<div class="card">
-<div class="num">01</div>
-<h3>B2B Lead Generation</h3>
-<p>
-Find relevant companies and decision-makers based on your ideal
-customer profile, target market and business goals.
-</p>
-</div>
+        <div class="metric-row">
 
-<div class="card">
-<div class="num">02</div>
-<h3>Outbound Sales</h3>
-<p>
-Build structured LinkedIn and cold email outreach campaigns designed
-to start relevant conversations with potential customers.
-</p>
-</div>
+          <div class="metric">
+            <label>Accounts</label>
+            <b>High-fit</b>
+            <em>Targeted</em>
+          </div>
 
-<div class="card">
-<div class="num">03</div>
-<h3>Appointment Setting</h3>
-<p>
-Identify and qualify relevant prospects and help turn targeted
-outreach into meaningful sales conversations.
-</p>
-</div>
+          <div class="metric">
+            <label>People</label>
+            <b>Decision</b>
+            <em>Mapped</em>
+          </div>
 
-<div class="card">
-<div class="num">04</div>
-<h3>AI & Workflow Automation</h3>
-<p>
-Automate repetitive sales and business workflows using practical
-AI-powered systems that save time and improve efficiency.
-</p>
-</div>
+          <div class="metric">
+            <label>Pipeline</label>
+            <b>Active</b>
+            <em>Optimized</em>
+          </div>
 
-</div>
-</div>
+        </div>
+
+        <div class="pipeline">
+
+          <div class="pipeline-title">
+            <strong>Pipeline Activity</strong>
+            <span>Growth system</span>
+          </div>
+
+          <div class="pipeline-bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+
+          <div class="bar-labels">
+            <span>ICP</span>
+            <span>Accounts</span>
+            <span>People</span>
+            <span>Reach</span>
+            <span>Reply</span>
+            <span>Pipeline</span>
+          </div>
+
+        </div>
+
+        <div class="activity">
+
+          <div class="activity-item">
+            <div class="activity-icon">01</div>
+            <div class="activity-copy">
+              <b>Target account identified</b>
+              <span>ICP match confirmed</span>
+            </div>
+            <div class="activity-status">Ready</div>
+          </div>
+
+          <div class="activity-item">
+            <div class="activity-icon">02</div>
+            <div class="activity-copy">
+              <b>Decision-maker mapped</b>
+              <span>Relevant role researched</span>
+            </div>
+            <div class="activity-status">Verified</div>
+          </div>
+
+          <div class="activity-item">
+            <div class="activity-icon">03</div>
+            <div class="activity-copy">
+              <b>Outreach workflow active</b>
+              <span>Personalized messaging</span>
+            </div>
+            <div class="activity-status">Running</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </section>
-<section id="industries">
-<div class="container">
 
-<div class="heading">
-<div class="eyebrow">Who We Help</div>
-<h2>Built for growing B2B companies.</h2>
-<p>
-Our services are designed for teams that need more qualified
-opportunities without adding unnecessary complexity.
-</p>
+<section id="system">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">The Nexora System</div>
+        <h2>From scattered growth activity to one connected engine.</h2>
+      </div>
+
+      <p>
+        We organize the core activities behind B2B pipeline generation into
+        a repeatable operating system — so growth becomes measurable,
+        structured and easier to scale.
+      </p>
+    </div>
+
+    <div class="system">
+
+      <div class="system-grid">
+
+        <div class="system-card">
+          <div class="system-number">01 / INTELLIGENCE</div>
+          <h3>Market Intelligence</h3>
+          <p>
+            Understand the market, customer profile, buying signals and
+            operational problems worth targeting.
+          </p>
+        </div>
+
+        <div class="system-card">
+          <div class="system-number">02 / TARGETING</div>
+          <h3>ICP & Accounts</h3>
+          <p>
+            Define high-fit companies and prioritize accounts where the
+            offer has a strong reason to be relevant.
+          </p>
+        </div>
+
+        <div class="system-card">
+          <div class="system-number">03 / PEOPLE</div>
+          <h3>Decision-Maker Research</h3>
+          <p>
+            Identify founders, CEOs, COOs, CTOs, CISOs and other relevant
+            stakeholders instead of sending outreach blindly.
+          </p>
+        </div>
+
+        <div class="system-card">
+          <div class="system-number">04 / EXECUTION</div>
+          <h3>Personalized Outreach</h3>
+          <p>
+            Build concise, relevant outreach and follow-up workflows designed
+            around the prospect's business context.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="system-line"></div>
+
+      <div class="flow">
+
+        <div class="flow-node">
+          <strong>Accounts</strong>
+          <span>High-fit companies</span>
+        </div>
+
+     <div class="flow-arrow">→</div>
+
+<div class="flow-node">
+
+<strong>People</strong>
+
+<span>Decision-makers</span>
+
 </div>
 
-<div class="industry-grid">
-<div class="industry">B2B SaaS</div>
-<div class="industry">IT & Software</div>
-<div class="industry">Digital Agencies</div>
-<div class="industry">Professional Services</div>
+<div class="flow-arrow">→</div>
+
+<div class="flow-node">
+
+<strong>Messages</strong>
+
+<span>Relevant conversations</span>
+
+</div>
+
+<div class="flow-arrow">→</div>
+
+<div class="flow-node">
+
+<strong>Pipeline</strong>
+
+<span>Qualified opportunities</span>
+
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+</section>   
+  <section id="work">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">What Nexora Actually Does</div>
+        <h2>The work behind a predictable outbound pipeline.</h2>
+      </div>
+
+      <p>
+        Nexora combines research, prospect intelligence, outreach execution
+        and workflow thinking into one coordinated growth function.
+      </p>
+    </div>
+
+    <div class="work-grid">
+
+      <div class="work-card">
+        <div class="work-icon">01</div>
+        <h3>ICP & Market Research</h3>
+        <p>
+          We turn a broad market into a focused target profile based on
+          industry, company characteristics, use cases and business friction.
+        </p>
+
+        <div class="work-list">
+          <span>Target market research</span>
+          <span>ICP definition</span>
+          <span>Use-case mapping</span>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-icon">02</div>
+        <h3>Prospect Intelligence</h3>
+        <p>
+          We research companies and relevant decision-makers so outreach is
+          based on real business context rather than generic databases.
+        </p>
+
+        <div class="work-list">
+          <span>Company identification</span>
+          <span>Decision-maker research</span>
+          <span>Prospect qualification</span>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-icon">03</div>
+        <h3>Outbound Execution</h3>
+        <p>
+          We structure personalized email and LinkedIn outreach around the
+          prospect's role, company and potential operational needs.
+        </p>
+
+        <div class="work-list">
+          <span>Personalized messaging</span>
+          <span>Cold outreach</span>
+          <span>Follow-up sequences</span>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-icon">04</div>
+        <h3>Follow-up Systems</h3>
+        <p>
+          Consistent follow-up is built into the workflow so interested
+          prospects do not disappear simply because the first message was missed.
+        </p>
+
+        <div class="work-list">
+          <span>Follow-up planning</span>
+          <span>Response tracking</span>
+          <span>Conversation handoff</span>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-icon">05</div>
+        <h3>AI Workflow Automation</h3>
+        <p>
+          Where repetitive processes can be improved, we help structure
+          automation workflows that reduce manual operational work.
+        </p>
+
+        <div class="work-list">
+          <span>Workflow mapping</span>
+          <span>Process automation</span>
+          <span>AI-assisted operations</span>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-icon">06</div>
+        <h3>Optimization</h3>
+        <p>
+          Campaign activity is reviewed continuously so targeting, messaging
+          and process quality can improve instead of staying static.
+        </p>
+
+        <div class="work-list">
+          <span>Campaign review</span>
+          <span>Message refinement</span>
+          <span>Process improvement</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+
+<section>
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">Who We Help</div>
+        <h2>Built for companies where better targeting can unlock growth.</h2>
+      </div>
+
+      <p>
+        Nexora is designed for B2B businesses with a clear service, product
+        or technical capability that needs a stronger route to the right buyers.
+      </p>
+    </div>
+
+    <div class="audience">
+
+      <div class="audience-card">
+        <h3>B2B SaaS & Software</h3>
+
+        <p>
+          Companies selling software, platforms or technical solutions to
+          businesses that need a focused outbound acquisition system.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">B2B SaaS</span>
+          <span class="tag">Software</span>
+          <span class="tag">Technology</span>
+          <span class="tag">Platforms</span>
+        </div>
+      </div>
+
+      <div class="audience-card">
+        <h3>Digital & Growth Companies</h3>
+
+        <p>
+          Agencies and specialist service businesses that have strong
+          delivery capabilities but want a more systematic pipeline engine.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Digital Agencies</span>
+          <span class="tag">Performance Marketing</span>
+          <span class="tag">Consulting</span>
+          <span class="tag">Professional Services</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 <section id="process">
-<div class="container">
+  <div class="container">
 
-<div class="heading">
-<div class="eyebrow">How We Work</div>
-<h2>A simple process from requirement to execution.</h2>
-</div>
+    <div class="section-head">
+      <div>
+        <div class="kicker">Our Process</div>
+        <h2>A simple operating rhythm designed around execution.</h2>
+      </div>
 
-<div class="process">
+      <p>
+        Every engagement starts with understanding the commercial objective,
+        then moves through research, execution and optimization.
+      </p>
+    </div>
 
-<div class="step">
-<strong>01 — Understand</strong>
-<p>Understand your business, market and growth objectives.</p>
-</div>
+    <div class="process">
 
-<div class="step">
-<strong>02 — Strategy</strong>
-<p>Create a focused approach based on your requirements.</p>
-</div>
+      <div class="process-card">
+        <div class="num">01</div>
+        <h3>Understand</h3>
+        <p>
+          Understand your offer, market, buyer and current growth constraints.
+        </p>
+      </div>
 
-<div class="step">
-<strong>03 — Execute</strong>
-<p>Implement the agreed lead generation or automation solution.</p>
-</div>
+      <div class="process-card">
+        <div class="num">02</div>
+        <h3>Strategy</h3>
+        <p>
+          Define the ICP, target accounts, decision-makers and outreach angle.
+        </p>
+      </div>
 
-<div class="step">
-<strong>04 — Optimize</strong>
-<p>Review performance and improve the process continuously.</p>
-</div>
+      <div class="process-card">
+        <div class="num">03</div>
+        <h3>Execute</h3>
+        <p>
+          Research prospects, create messaging and execute structured outreach.
+        </p>
+      </div>
 
-<div class="step">
-<strong>05 — Scale</strong>
-<p>Expand successful systems as your business grows.</p>
-</div>
+      <div class="process-card">
+        <div class="num">04</div>
+        <h3>Optimize</h3>
+        <p>
+          Review responses, identify friction and improve targeting and messaging.
+        </p>
+      </div>
 
-</div>
-</div>
+      <div class="process-card">
+        <div class="num">05</div>
+        <h3>Scale</h3>
+        <p>
+          Turn the working process into a repeatable growth system.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
-<section id="requirement">
-<div class="container">
 
-<div class="heading">
-<div class="eyebrow">Work With Nexora</div>
-<h2>Tell us what your business needs.</h2>
-<p>
-Tell us about your growth challenge. We'll review your requirement
-and respond by email with the most relevant next steps.
-</p>
-</div>
-
-<div class="form-box">
-
-<form action="https://formsubmit.co/vishal.nexora@gmail.com" method="POST">
-
-<input type="hidden" name="_subject" value="New Nexora Business Requirement">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-
-<div class="row">
-
-<div>
-<label>Your Name</label>
-<input type="text" name="Name" placeholder="Full name" required>
-</div>
-
-<div>
-<label>Work Email</label>
-<input type="email" name="Email" placeholder="name@company.com" required>
-</div>
-
-</div>
-
-<div class="row">
-
-<div>
-<label>Company Name</label>
-<input type="text" name="Company" placeholder="Company name" required>
-</div>
-
-<div>
-<label>Company Website</label>
-<input type="url" name="Website" placeholder="https://yourcompany.com">
-</div>
-
-</div>
-
-<div class="row">
-
-<div>
-<label>Your Role</label>
-<select name="Role" required>
-<option value="">Select your role</option>
-<option>Founder / CEO</option>
-<option>Sales</option>
-<option>Marketing</option>
-<option>Operations</option>
-<option>Other</option>
-</select>
-</div>
-
-<div>
-<label>Target Market</label>
-<select name="Market" required>
-<option value="">Select target market</option>
-<option>United States</option>
-<option>United Kingdom</option>
-<option>Canada</option>
-<option>UAE</option>
-<option>Europe</option>
-<option>Other</option>
-</select>
-</div>
-
-</div>
-
-<div>
-<label>What can Nexora help you with?</label>
-
-<div class="check-grid">
-
-<label class="check">
-<input type="checkbox" name="Service[]" value="B2B Lead Generation">
-B2B Lead Generation
-</label>
-
-<label class="check">
-<input type="checkbox" name="Service[]" value="Outbound Sales">
-Outbound Sales
-</label>
-
-<label class="check">
-<input type="checkbox" name="Service[]" value="Appointment Setting">
-Appointment Setting
-</label>
-
-<label class="check">
-<input type="checkbox" name="Service[]" value="AI Automation">
-AI Automation
-</label>
-
-<label class="check">
-<input type="checkbox" name="Service[]" value="Workflow Automation">
-Workflow Automation
-</label>
-
-<label class="check">
-<input type="checkbox" name="Service[]" value="Sales Process Automation">
-Sales Process Automation
-</label>
-
-</div>
-</div>
-
-<div>
-<label>What are you trying to achieve?</label>
-<textarea
-name="Requirement"
-placeholder="Tell us about your current challenge, goals and what you'd like Nexora to help you achieve..."
-required></textarea>
-</div>
-
-<div>
-<label>Approximate Budget</label>
-
-<select name="Budget" required>
-<option value="">Select your budget range</option>
-<option>$500 – $1,000</option>
-<option>$1,000 – $2,500</option>
-<option>$2,500 – $5,000</option>
-<option>$5,000+</option>
-<option>Not sure yet</option>
-</select>
-
-</div>
-
-<button type="submit" class="btn primary" style="border:0;cursor:pointer">
-Submit My Requirement →
-</button>
-
-<div class="note">
-Your information is reviewed confidentially by the Nexora team.
-</div>
-
-</form>
-
-</div>
-</div>
-</section>
-
-<!-- WHY NEXORA -->
 <section>
-<div class="container">
+  <div class="container">
 
-<div class="heading">
-<div class="eyebrow">Why Nexora</div>
-<h2>Focused on outcomes that actually matter.</h2>
-<p>
-No unnecessary complexity. Just practical systems designed around
-your business goals.
-</p>
-</div>
+    <div class="section-head">
+      <div>
+        <div class="kicker">Inside The Engagement</div>
+        <h2>Clear work. Clear ownership. Clear outputs.</h2>
+      </div>
 
-<div class="grid">
+      <p>
+        The objective is not simply to send more messages. It is to create a
+        better-connected system between your offer and the people who can buy it.
+      </p>
+    </div>
 
-<div class="card">
-<div class="num">01</div>
-<h3>Targeted</h3>
-<p>
-We focus on the right companies, decision-makers and opportunities
-for your business.
-</p>
-</div>
+    <div class="proof">
 
-<div class="card">
-<div class="num">02</div>
-<h3>Data-Driven</h3>
-<p>
-Our approach uses relevant business information to improve
-prospecting and decision-making.
-</p>
-</div>
+      <div class="proof-card">
+        <h3>What gets built</h3>
 
-<div class="card">
-<div class="num">03</div>
-<h3>Human + AI</h3>
-<p>
-AI handles repetitive work while important business decisions
-remain under human control.
-</p>
-</div>
+        <p>
+          Depending on the engagement, Nexora can support the following parts
+          of the growth workflow.
+        </p>
 
-<div class="card">
-<div class="num">04</div>
-<h3>Built to Scale</h3>
-<p>
-The systems we create can evolve with your team, market and
-business requirements.
-</p>
-</div>
+        <div class="proof-points">
 
-</div>
-</div>
+          <div class="proof-point">
+            <i>✓</i>
+            <span>ICP and target-market research</span>
+          </div>
+
+          <div class="proof-point">
+            <i>✓</i>
+            <span>High-fit company identification</span>
+          </div>
+
+          <div class="proof-point">
+            <i>✓</i>
+            <span>Founder and executive research</span>
+          </div>
+
+          <div class="proof-point">
+            <i>✓</i>
+            <span>Verified prospect intelligence</span>
+          </div>
+
+          <div class="proof-point">
+            <i>✓</i>
+            <span>Personalized outbound messaging</span>
+          </div>
+
+          <div class="proof-point">
+            <i>✓</i>
+            <span>Follow-up and response tracking</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="proof-card">
+        <h3>How we think about growth</h3>
+
+        <p>
+          A good growth process should reduce randomness. Every stage should
+          make the next stage easier to execute and improve.
+        </p>
+
+        <div class="proof-points">
+
+          <div class="proof-point">
+            <i>01</i>
+            <span>Start with the right market instead of starting with volume.</span>
+          </div>
+
+          <div class="proof-point">
+            <i>02</i>
+            <span>Reach the relevant decision-maker instead of a generic inbox.</span>
+          </div>
+
+          <div class="proof-point">
+            <i>03</i>
+            <span>Make the message relevant to the prospect's actual context.</span>
+          </div>
+
+          <div class="proof-point">
+            <i>04</i>
+            <span>Track conversations and improve the system continuously.</span>
+          </div>
+
+          <div class="proof-point">
+            <i>05</i>
+            <span>Automate repetitive work where it makes operational sense.</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+  
+    <section class="cta" id="contact">
+  <div class="container">
+
+    <div class="cta-box">
+
+      <div class="kicker">Start With A Conversation</div>
+
+      <h2>Build a growth system that can scale.</h2>
+
+      <p>
+        Tell us what you are selling, who you want to reach and where growth
+        is getting stuck. We will explore whether Nexora can help build a
+        stronger pipeline and operating system around it.
+      </p>
+
+      <a
+        href="mailto:vishal.nexora@gmail.com?subject=Nexora%20Growth%20Discussion"
+        class="btn btn-primary"
+      >
+        Talk to Nexora
+      </a>
+
+    </div>
+
+  </div>
 </section>
 
-<!-- FINAL CTA -->
-<section>
-<div class="container">
+</main>
 
-<div class="heading" style="margin:auto;text-align:center;">
 
-<div class="eyebrow">Start a Conversation</div>
-
-<h2>Have a B2B growth challenge?</h2>
-
-<p>
-Tell us what you're trying to achieve and let Nexora
-help you build the right growth system.
-</p>
-
-<div class="buttons">
-<a href="#requirement" class="btn primary">
-Tell Us Your Requirement →
-</a>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- FOOTER -->
 <footer class="footer">
 
-<div class="container footer-inner">
+  <div class="container footer-inner">
 
-<div>
-<strong>NEXORA<span style="color:#8088ff;">.</span></strong>
-<br>
-B2B Lead Generation & AI Automation
-</div>
+    <div class="footer-left">
+      <div class="footer-brand">NEXORA</div>
+      <div>B2B Growth & Operations</div>
+      <div>© 2026 Nexora. All rights reserved.</div>
+    </div>
 
-<div>
-© 2026 Nexora. All rights reserved.
-</div>
+    <div class="footer-right">
+      <a href="#system">System</a>
+      <a href="#work">What We Do</a>
+      <a href="#process">Process</a>
+      <a href="mailto:vishal.nexora@gmail.com">Email</a>
+    </div>
 
-</div>
+  </div>
 
 </footer>
 
 </body>
-</html>
+</html>    
+          
+            
