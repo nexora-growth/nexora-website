@@ -1,446 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexora Systems — Autonomous Revenue Infrastructure & Enterprise Pipeline Automation</title>
-<meta name="description" content="Enterprise B2B growth infrastructure. Nexora synthesizes high-dimensional prospect intelligence, autonomous outbound protocols, and deterministic pipeline operations.">
-
-<!-- Fonts & Icons -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg-core: #030407;
-  --bg-surface: #080a0f;
-  --bg-surface-elevated: #0f131a;
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-active: rgba(139, 143, 255, 0.35);
-  --primary: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.22);
-  --cyan-accent: #00f2fe;
-  --cyan-glow: rgba(0, 242, 254, 0.18);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --mono-font: 'JetBrains Mono', monospace;
-  --sans-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --max-w: 1240px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: var(--bg-core); color: var(--text-primary); font-family: var(--sans-font); }
-body { line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15), transparent 45%),
-    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 50px 50px, 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.wrap { width: min(var(--max-w), 92%); margin: auto; position: relative; z-index: 1; }
-a { color: inherit; text-decoration: none; }
-
-.top-telemetry {
-  border-bottom: 1px solid var(--border-subtle);
-  background: rgba(4, 5, 8, 0.85);
-  backdrop-filter: blur(12px);
-  font-family: var(--mono-font);
-  font-size: 11px;
-  color: var(--text-tertiary);
-  padding: 8px 0;
-}
-.telemetry-row { display: flex; justify-content: space-between; align-items: center; }
-.telemetry-item { display: flex; align-items: center; gap: 8px; }
-.telemetry-item span.live-indicator {
-  width: 6px; height: 6px; border-radius: 50%; background: #10b981;
-  box-shadow: 0 0 8px #10b981; animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-nav {
-  position: sticky; top: 0; z-index: 100;
-  border-bottom: 1px solid var(--border-subtle);
-  background: rgba(3, 4, 7, 0.75);
-  backdrop-filter: blur(20px);
-  height: 72px; display: flex; align-items: center;
-}
-.nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 21px; letter-spacing: -0.5px; }
-.brand-hex {
-  width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--cyan-accent));
-  border-radius: 6px; display: grid; place-items: center; font-size: 14px; font-weight: 900; color: #000;
-}
-.nav-links { display: flex; gap: 32px; list-style: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
-.nav-links li a:hover { color: #fff; }
-.nav-actions { display: flex; gap: 12px; align-items: center; }
-.btn-secondary {
-  padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-subtle);
-  background: rgba(255,255,255,0.03); font-size: 13px; font-weight: 600; transition: .2s;
-}
-.btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-.btn-primary {
-  padding: 9px 18px; border-radius: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, #d8d8d8 100%);
-  color: #000; font-size: 13px; font-weight: 700; transition: .25s; box-shadow: 0 4px 18px rgba(255,255,255,0.15);
-}
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(255,255,255,0.25); }
-
-.hero { padding: 100px 0 70px; text-align: center; position: relative; }
-.sys-badge {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 6px 14px; border-radius: 100px;
-  background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25);
-  font-family: var(--mono-font); font-size: 11px; color: #a5b4fc; text-transform: uppercase; margin-bottom: 28px;
-}
-.hero h1 {
-  font-size: clamp(42px, 6.2vw, 84px);
-  font-weight: 800; letter-spacing: -3.5px; line-height: 1.02;
-  max-width: 1050px; margin: 0 auto 24px;
-}
-.grad-text {
-  background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 70%, #00f2fe 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-desc {
-  max-width: 760px; margin: 0 auto 40px; font-size: 18px; color: var(--text-secondary);
-  font-weight: 400; line-height: 1.6;
-}
-.hero-cta-box { display: flex; justify-content: center; gap: 16px; align-items: center; margin-bottom: 50px; }
-  .console-wrapper {
-  margin-top: 30px;
-  border-radius: 16px;
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-surface);
-  box-shadow: 0 30px 100px -20px rgba(0,0,0,0.8), 0 0 50px -10px var(--primary-glow);
-  overflow: hidden; text-align: left;
-}
-.console-header {
-  height: 48px; background: #05070a; border-bottom: 1px solid var(--border-subtle);
-  display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
-}
-.mac-buttons { display: flex; gap: 7px; }
-.mac-btn { width: 10px; height: 10px; border-radius: 50%; }
-.m-red { background: #ff5f56; } .m-yel { background: #ffbd2e; } .m-grn { background: #27c93f; }
-.console-title { font-family: var(--mono-font); font-size: 11px; color: var(--text-tertiary); letter-spacing: 1px; }
-
-.console-body {
-  display: grid; grid-template-columns: 320px 1fr; min-height: 420px;
-}
-.console-sidebar {
-  border-right: 1px solid var(--border-subtle); background: #040508; padding: 24px 18px;
-}
-.module-label { font-family: var(--mono-font); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 14px; letter-spacing: 1.5px; }
-.mod-btn {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 12px; color: var(--text-secondary);
-  border: 1px solid transparent; background: transparent; cursor: pointer; width: 100%; transition: .2s;
-}
-.mod-btn.active {
-  background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.25); color: #fff; font-weight: 600;
-}
-.mod-status { font-family: var(--mono-font); font-size: 9px; padding: 2px 6px; border-radius: 4px; background: rgba(16, 185, 129, 0.1); color: #34d399; }
-
-.console-view { padding: 26px; background: var(--bg-surface); display: flex; flex-direction: column; justify-content: space-between; }
-.stats-grid-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
-.stat-card-mini {
-  background: #040508; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 16px;
-}
-.stat-card-mini .label { font-family: var(--mono-font); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; }
-.stat-card-mini .val { font-size: 20px; font-weight: 700; margin-top: 6px; color: #fff; }
-
-.live-log-stream {
-  background: #020305; border: 1px solid var(--border-subtle); border-radius: 10px;
-  padding: 16px; font-family: var(--mono-font); font-size: 11px; height: 180px; overflow-y: hidden;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.log-line { display: flex; gap: 12px; }
-.log-time { color: var(--text-tertiary); }
-.log-tag { color: var(--cyan-accent); }
-.log-msg { color: var(--text-secondary); }
-
-section { padding: 110px 0; border-bottom: 1px solid var(--border-subtle); }
-.section-meta { text-align: center; max-width: 800px; margin: 0 auto 65px; }
-.kicker { font-family: var(--mono-font); font-size: 11px; color: var(--primary); text-transform: uppercase; letter-spacing: 2.5px; font-weight: 700; margin-bottom: 12px; }
-h2 { font-size: clamp(32px, 4.2vw, 54px); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 16px; }
-.section-meta p { font-size: 17px; color: var(--text-secondary); }
-
-.bento-grid {
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px;
-}
-.bento-col-8 { grid-column: span 8; }
-.bento-col-4 { grid-column: span 4; }
-.bento-col-6 { grid-column: span 6; }
-.bento-card {
-  border: 1px solid var(--border-subtle); border-radius: 20px; padding: 36px;
-  background: linear-gradient(180deg, rgba(15, 19, 26, 0.4) 0%, rgba(8, 10, 15, 0.6) 100%);
-  position: relative; overflow: hidden; transition: border-color .3s;
-}
-.bento-card:hover { border-color: rgba(255,255,255,0.18); }
-.bento-badge {
-  font-family: var(--mono-font); font-size: 9px; font-weight: 600; color: #a5b4fc;
-  border: 1px solid rgba(165, 180, 252, 0.2); background: rgba(99, 102, 241, 0.06);
-  padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 20px;
-}
-.bento-card h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-.bento-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-
-.metrics-strip {
-  display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border-subtle);
-  border-radius: 18px; background: rgba(8, 10, 15, 0.5); overflow: hidden; margin-top: 40px;
-}
-.metric-box { padding: 32px 24px; border-right: 1px solid var(--border-subtle); }
-.metric-box:last-child { border-right: none; }
-.metric-box .num { font-size: 38px; font-weight: 800; letter-spacing: -1.5px; color: #fff; font-family: var(--sans-font); }
-.metric-box .desc { font-size: 13px; color: var(--text-secondary); margin-top: 6px; }
-
-.pipeline-diagram {
-  border: 1px solid var(--border-subtle); border-radius: 18px; padding: 36px; background: #040508;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; position: relative;
-}
-.pipe-step {
-  background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px;
-  padding: 22px; display: flex; flex-direction: column; justify-content: space-between; min-height: 170px;
-}
-.pipe-step .idx { font-family: var(--mono-font); font-size: 10px; color: var(--cyan-accent); font-weight: 600; }
-.pipe-step h4 { font-size: 16px; font-weight: 700; margin: 12px 0 6px; }
-.pipe-step p { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; }
-
-.cta-enterprise {
-  padding: 130px 0; text-align: center;
-  background: radial-gradient(circle at 50% 10%, rgba(99, 102, 241, 0.12), transparent 60%);
-}
-.cta-enterprise h2 { font-size: clamp(38px, 5vw, 68px); letter-spacing: -2.5px; margin-bottom: 20px; }
-.cta-enterprise p { max-width: 620px; margin: 0 auto 36px; color: var(--text-secondary); font-size: 18px; }
-
-footer { padding: 60px 0 40px; border-top: 1px solid var(--border-subtle); font-size: 12px; color: var(--text-tertiary); }
-.footer-grid { display: flex; justify-content: space-between; align-items: center; }
-
-@media(max-width: 900px) {
-  .nav-links { display: none; }
-  .bento-col-8, .bento-col-4, .bento-col-6 { grid-column: span 12; }
-  .console-body { grid-template-columns: 1fr; }
-  .console-sidebar { display: none; }
-  .pipeline-diagram { grid-template-columns: 1fr; }
-  .metrics-strip { grid-template-columns: 1fr 1fr; }
-  .metric-box { border-bottom: 1px solid var(--border-subtle); }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora Systems // Autonomous Pipeline Infrastructure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #030712;
+      --bg-card: rgba(10, 16, 31, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(56, 189, 248, 0.4);
+      --blue-accent: #38bdf8;
+      --indigo-accent: #6366f1;
+      --emerald-accent: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(at 50% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 90% 40%, rgba(99, 102, 241, 0.08) 0px, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    header {
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 7, 18, 0.75);
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+    .logo-box { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; }
+    .logo-badge {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff;
+    }
+    .status-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 100px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--emerald-accent);
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald-accent); box-shadow: 0 0 10px var(--emerald-accent); }
+    .hero { padding: 80px 0 50px; text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 100px;
+      background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2);
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--blue-accent); margin-bottom: 24px;
+    }
+    .hero h1 { font-size: clamp(32px, 5.5vw, 60px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 20px; }
+    .hero h1 span { background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: clamp(15px, 2vw, 18px); color: var(--text-muted); max-width: 680px; margin: 0 auto 36px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #ffffff; color: #030712; padding: 14px 28px;
+      border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    }
+    .hero-visual-card {
+      margin-top: 45px; background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 18px; padding: 20px; backdrop-filter: blur(16px);
+    }
+    .flow-steps { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .flow-step { flex: 1; min-width: 130px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px; text-align: left; }
+    .flow-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--blue-accent); margin-bottom: 4px; }
+    .flow-title { font-size: 13px; font-weight: 600; color: #f1f5f9; }
+    .flow-arrow { color: #475569; font-size: 14px; }
+    .section-header { text-align: center; margin: 70px 0 35px; }
+    .section-header h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .section-header p { color: var(--text-muted); font-size: 14px; max-width: 580px; margin: 0 auto; }
+    .intelligence-table-card { background: #060b18; border: 1px solid #1e293b; border-radius: 14px; overflow: hidden; }
+    .table-top-bar { background: #0b1329; padding: 12px 18px; display: flex; justify-content: space-between; border-bottom: 1px solid #1e293b; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); }
+    .table-container { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; min-width: 500px; }
+    th { padding: 12px 16px; color: #64748b; font-family: 'JetBrains Mono', monospace; border-bottom: 1px solid #1e293b; }
+    td { padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: #cbd5e1; }
+    .tag-green { background: rgba(16, 185, 129, 0.1); color: var(--emerald-accent); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+    .tag-blue { background: rgba(56, 189, 248, 0.1); color: var(--blue-accent); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+    .sequence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 25px; }
+    .seq-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; }
+    .seq-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-accent); margin-bottom: 8px; display: block; }
+    .seq-card h3 { font-size: 16px; margin-bottom: 8px; }
+    .seq-card p { font-size: 13px; color: var(--text-muted); }
+    .handoff-box { margin: 70px 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 20px; text-align: center; }
+    .handoff-nodes { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .h-node { background: #0d1527; border: 1px solid #1e293b; padding: 10px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+    .h-node.active { border-color: var(--emerald-accent); color: #fff; box-shadow: 0 0 15px rgba(16, 185, 129, 0.15); }
+    .final-cta { padding: 70px 0; text-align: center; border-top: 1px solid var(--border-color); }
+    footer { border-top: 1px solid var(--border-color); padding: 24px 0; text-align: center; font-size: 11px; color: #64748b; font-family: 'JetBrains Mono', monospace; }
+  </style>
 </head>
 <body>
-
-<div class="top-telemetry">
-  <div class="wrap telemetry-row">
-    <div class="telemetry-item">
-      <span class="live-indicator"></span>
-      <span>NEXORA GLOBAL REVENUE GRID // OPERATIONAL</span>
-    </div>
-    <div class="telemetry-item">
-      <span>AI MODEL: NX-ORCHESTRATOR v4.2</span>
-      <span>|</span>
-      <span>ENCRYPTION: AES-256 GCM</span>
-    </div>
-  </div>
-</div>
-<nav>
-  <div class="wrap nav-inner">
-    <a href="#" class="brand">
-      <div class="brand-hex">N</div>
-      <span>NEXORA</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#platform">Platform Architecture</a></li>
-      <li><a href="#solutions">Solutions</a></li>
-      <li><a href="#telemetry">Live Grid</a></li>
-      <li><a href="#security">Enterprise Compliance</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a href="#demo" class="btn-secondary">Infrastructure Specs</a>
-      <a href="mailto:vishal.nexora@gmail.com?subject=Enterprise%20System%20Deployment" class="btn-primary">Request Deployment →</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="sys-badge">Autonomous B2B Revenue Infrastructure</div>
-    <h1>Engineered for <span class="grad-text">Deterministic</span> Growth at Global Scale.</h1>
-    <p class="hero-desc">Nexora replaces uncoordinated outbound prospecting with programmatic data intelligence, autonomous sequence execution, and high-precision pipeline delivery.</p>
-    <div class="hero-cta-box">
-      <a href="mailto:vishal.nexora@gmail.com?subject=Enterprise%20System%20Deployment" class="btn-primary">Deploy Outbound Engine →</a>
-      <a href="#platform" class="btn-secondary">View Architecture Documentation</a>
-    </div>
-
-    <div class="console-wrapper" id="telemetry">
-      <div class="console-header">
-        <div class="mac-buttons"><div class="mac-btn m-red"></div><div class="mac-btn m-yel"></div><div class="mac-btn m-grn"></div></div>
-        <div class="console-title">NEXORA PIPELINE TELEMETRY CONSOLE // CLUSTER 04-US-EAST</div>
-        <div style="font-family:var(--mono-font); font-size:10px; color:#10b981;">● CONNECTED</div>
+    <header>
+    <div class="container nav-inner">
+      <div class="logo-box">
+        <div class="logo-badge">N</div>
+        <span>NEXORA</span>
       </div>
-      <div class="console-body">
-        <div class="console-sidebar">
-          <div class="module-label">Engine Subsystems</div>
-          <button class="mod-btn active">
-            <span>Market Discovery Matrix</span>
-            <span class="mod-status">ACTIVE</span>
-          </button>
-          <button class="mod-btn">
-            <span>ICP Identity Synthesis</span>
-            <span class="mod-status">STANDBY</span>
-          </button>
-          <button class="mod-btn">
-            <span>Dynamic Sequence Dispatch</span>
-            <span class="mod-status">RUNNING</span>
-          </button>
-          <button class="mod-btn">
-            <span>Autonomous Meeting Router</span>
-            <span class="mod-status">ONLINE</span>
-          </button>
-        </div>
-        <div class="console-view">
-          <div class="stats-grid-mini">
-            <div class="stat-card-mini">
-              <div class="label">Mapped Accounts</div>
-              <div class="val">42,890</div>
-            </div>
-            <div class="stat-card-mini">
-              <div class="label">Decision Maker Fit</div>
-              <div class="val">99.4%</div>
-            </div>
-            <div class="stat-card-mini">
-              <div class="label">Active In-Flight Signals</div>
-              <div class="val">1,248/sec</div>
-            </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>OUTBOUND ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">B2B PIPELINE ACQUISITION ENGINE</div>
+      <h1><span>Your Product Is Ready.</span><br>Now Build The Pipeline.</h1>
+      <p>Nexora replaces uncoordinated outbound prospecting with continuous, highly targeted executive meetings delivered straight to your calendar.</p>
+      <a href="#pipeline" class="cta-btn">
+        Start Conversation ➔
+      </a>
+
+      <!-- Visual Flow Engine -->
+      <div class="hero-visual-card">
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-tag">STEP 01</div>
+            <div class="flow-title">Target Ecosystems</div>
           </div>
-          <div class="live-log-stream">
-            <div class="log-line"><span class="log-time">[08:04:12]</span><span class="log-tag">[DISCOVERY]</span><span class="log-msg">Synthesized Series B SaaS ecosystem (North America, ARR > $5M).</span></div>
-            <div class="log-line"><span class="log-time">[08:04:15]</span><span class="log-tag">[IDENTITY]</span><span class="log-msg">Isolated 1,280 VP Sales & Head of Revenue profiles with active budget signals.</span></div>
-            <div class="log-line"><span class="log-time">[08:04:19]</span><span class="log-tag">[AUTOMATION]</span><span class="log-msg">Generated 840 custom contextual narrative triggers across primary outreach nodes.</span></div>
-            <div class="log-line"><span class="log-time">[08:04:22]</span><span class="log-tag">[DELIVERY]</span><span class="log-msg">DKIM/SPF/DMARC health checked across all secondary clusters at 100% integrity.</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-tag">STEP 02</div>
+            <div class="flow-title">Decision Makers</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-tag">STEP 03</div>
+            <div class="flow-title">Contextual Dialogue</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-tag">STEP 04</div>
+            <div class="flow-title">Direct Handoff</div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Prospect Intelligence Section -->
+    <section id="pipeline">
+      <div class="section-header">
+        <h2>Live Prospect Intelligence</h2>
+        <p>Dynamic ICP filtering to target active buyers instead of cold contacts.</p>
+      </div>
+
+      <div class="intelligence-table-card">
+        <div class="table-top-bar">
+          <span>// PIPELINE TELEMETRY FEED</span>
+          <span style="color: var(--emerald-accent);">IDENTIFY → VERIFY → APPROACH</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>TARGET COMPANY</th>
+                <th>FIT SCORE</th>
+                <th>BUYING SIGNAL</th>
+                <th>DECISION MAKER</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CloudScale Inc.</strong></td>
+                <td><span class="tag-green">96%</span></td>
+                <td>Series A Expansion</td>
+                <td>VP of Engineering</td>
+                <td><span class="tag-blue">Active Sequence</span></td>
+              </tr>
+              <tr>
+                <td><strong>Apex Logic Labs</strong></td>
+                <td><span class="tag-green">93%</span></td>
+                <td>Dev Hiring Surge</td>
+                <td>Chief Technology Officer</td>
+                <td><span class="tag-blue">Handshake Verified</span></td>
+              </tr>
+              <tr>
+                <td><strong>DataVanguard</strong></td>
+                <td><span class="tag-green">89%</span></td>
+                <td>Infrastructure Shift</td>
+                <td>Head of Product</td>
+                <td><span class="tag-blue">Conversation Open</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+        <!-- Orchestrator Sequence -->
+    <section>
+      <div class="section-header">
+        <h2>We Don't Just Find Contacts.<br>We Create Conversations.</h2>
+        <p>A deterministic execution stack that turns cold tech markets into qualified sales pipeline.</p>
+      </div>
+
+      <div class="sequence-grid">
+        <div class="seq-card">
+          <span class="seq-num">SEQUENCE // 01</span>
+          <h3>Hyper-Contextual Mapping</h3>
+          <p>Every account is verified against live tech stacks, corporate initiatives, and verified budget ownership before any message is queued.</p>
+        </div>
+
+        <div class="seq-card">
+          <span class="seq-num">SEQUENCE // 02</span>
+          <h3>Zero-Spam Placement</h3>
+          <p>Custom MX authentication setups guarantee your brand’s authority and protect your primary domain reputation permanently.</p>
+        </div>
+
+        <div class="seq-card">
+          <span class="seq-num">SEQUENCE // 03</span>
+          <h3>Structured Conversion</h3>
+          <p>Multi-touch follow-ups engineered specifically for B2B executives without generic templates or copy-paste pitches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pipeline Handoff Section -->
+    <section class="handoff-box">
+      <h3 style="font-size: 20px; margin-bottom: 8px;">The Closed-Loop Handoff Model</h3>
+      <p style="color: var(--text-muted); font-size: 13px; max-width: 550px; margin: 0 auto;">Nexora handles everything from data extraction to qualification. You only step in when it's time to demo and close.</p>
+      
+      <div class="handoff-nodes">
+        <div class="h-node">Nexora Engine</div>
+        <span style="color: #475569;">➔</span>
+        <div class="h-node">Verified Meeting</div>
+        <span style="color: #475569;">➔</span>
+        <div class="h-node active">Your Sales Call</div>
+        <span style="color: #475569;">➔</span>
+        <div class="h-node">Closed Deal</div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <h2 style="font-size: clamp(26px, 4vw, 38px); margin-bottom: 14px;">You built the product.<br>We'll help build the pipeline.</h2>
+      <p style="color: var(--text-muted); margin-bottom: 28px;">Ready to install outbound acquisition infrastructure?</p>
+      <a href="mailto:contact@nexora.com" class="cta-btn">Book Architecture Evaluation →</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 NEXORA SYSTEMS. PROPRIETARY PIPELINE INFRASTRUCTURE.
     </div>
-  </div>
-</header>
-
-<section id="platform">
-  <div class="wrap">
-    <div class="section-meta">
-      <div class="kicker">Core Architecture</div>
-      <h2>Engineered like mission-critical software.</h2>
-      <p>Outbound sales isn't guesswork. We build it as a deterministic stack consisting of four interdependent execution layers.</p>
-    </div>
-
-    <div class="bento-grid">
-      <div class="bento-card bento-col-8">
-        <span class="bento-badge">LAYER 01 // DATA INGESTION</span>
-        <h3>High-Dimensional ICP Intelligence</h3>
-        <p>We do not use commoditized, recycled lists. Our ingestion layer crawls discrete market footprints, funding vectors, hiring patterns, and cloud software infrastructure to isolate accounts at the exact moment they require your solution.</p>
-      </div>
-
-      <div class="bento-card bento-col-4">
-        <span class="bento-badge">LAYER 02 // SANITIZATION</span>
-        <h3>Zero-Bounce Deliverability</h3>
-        <p>Multi-step MX server handshakes and isolated routing ensure complete inbox placement with enterprise domain reputation protection.</p>
-      </div>
-
-      <div class="bento-card bento-col-4">
-        <span class="bento-badge">LAYER 03 // COGNITIVE REASONING</span>
-        <h3>Hyper-Contextual Outbound</h3>
-        <p>Every message references real-time corporate initiatives and verifiable pain points, eliminating the generic spam feel entirely.</p>
-      </div>
-
-      <div class="bento-card bento-col-8">
-        <span class="bento-badge">LAYER 04 // REVENUE ORCHESTRATION</span>
-        <h3>Autonomous Pipeline Conversion Engine</h3>
-        <p>From positive replies to calendar conversion, our operational workflows qualify decision-makers and route booked demonstrations straight into your executive calendar without friction.</p>
-      </div>
-    </div>
-
-    <div class="metrics-strip">
-      <div class="metric-box">
-        <div class="num">99.8%</div>
-        <div class="desc">Inbox Placement & Deliverability Score</div>
-      </div>
-      <div class="metric-box">
-        <div class="num">100%</div>
-        <div class="desc">Verified C-Suite & VP Data</div>
-      </div>
-      <div class="metric-box">
-        <div class="num">14 Days</div>
-        <div class="desc">Rapid Production System Deployment</div>
-      </div>
-      <div class="metric-box">
-        <div class="num">Deterministic</div>
-        <div class="desc">Engineered Predictable Pipeline Yield</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="solutions">
-  <div class="wrap">
-    <div class="section-meta">
-      <div class="kicker">Execution Framework</div>
-      <h2>The Nexora Deployment Sequence.</h2>
-      <p>How we transition your company from irregular client acquisition to an automated, proprietary revenue machine.</p>
-    </div>
-
-    <div class="pipeline-diagram">
-      <div class="pipe-step">
-        <span class="idx">STAGE // 01</span>
-        <h4>ICP Formulation</h4>
-        <p>Mathematical framing of TAM, buying triggers, unit economics, and target personas.</p>
-      </div>
-      <div class="pipe-step">
-        <span class="idx">STAGE // 02</span>
-        <h4>Asset Architecture</h4>
-        <p>Dedicated outbound domain networks, DNS cryptographic authentications, and warm-up engines.</p>
-      </div>
-      <div class="pipe-step">
-        <span class="idx">STAGE // 03</span>
-        <h4>Autonomous Launch</h4>
-        <p>Execution of personalized multi-channel outbound sequences targeting verified decision-makers.</p>
-      </div>
-      <div class="pipe-step">
-        <span class="idx">STAGE // 04</span>
-        <h4>Pipeline Scale</h4>
-        <p>Conversion handoff to internal leadership teams with closed-loop CRM synchronization.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-enterprise" id="demo">
-  <div class="wrap">
-    <div class="kicker">Enterprise Pipeline Acquisition</div>
-    <h2>Ready to install modern growth infrastructure?</h2>
-    <p>Eliminate pipeline uncertainty. Connect with our engineering and growth architecture team to review requirements.</p>
-    <a href="mailto:vishal.nexora@gmail.com?subject=Enterprise%20System%20Deployment" class="btn-primary" style="padding: 14px 30px; font-size: 15px;">Book Architecture Evaluation →</a>
-  </div>
-</section>
-
-<footer id="security">
-  <div class="wrap footer-grid">
-    <div>
-      <strong>NEXORA SYSTEMS CORPORATION</strong>
-      <p style="margin-top: 4px;">Autonomous Revenue Systems & Outbound Infrastructure.</p>
-    </div>
-    <div>
-      © 2026 Nexora Systems. Built for high-growth global enterprises.
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
+
