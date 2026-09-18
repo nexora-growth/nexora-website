@@ -254,6 +254,63 @@
         <div style="background: #0d1527; border: 1px solid var(--border); padding: 12px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;">Closed Deal</div>
       </div>
     </section>
+        <!-- VIP CLIENT INTAKE FORM -->
+    <section id="deploy-pipeline" style="margin: 80px 0;">
+      <div class="section-head">
+        <h2>Deploy Custom Pipeline Infrastructure</h2>
+        <p>Submit your outbound requirements. Our engineering team reviews your ICP parameters and delivers an acquisition blueprint within 24 hours.</p>
+      </div>
+
+      <div style="max-width: 680px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border-glow); border-radius: 18px; padding: 32px 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.85); backdrop-filter: blur(16px);">
+        
+        <!-- Action URL me apna email connect karein -->
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <div>
+              <label style="display: block; font-size: 12px; font-family: 'JetBrains Mono'; color: var(--muted); margin-bottom: 6px;">COMPANY NAME *</label>
+              <input type="text" name="company" required placeholder="e.g. Apex Logic Labs" style="width: 100%; background: #060b18; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 14px; outline: none;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 12px; font-family: 'JetBrains Mono'; color: var(--muted); margin-bottom: 6px;">WORK EMAIL *</label>
+              <input type="email" name="email" required placeholder="founder@company.com" style="width: 100%; background: #060b18; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 14px; outline: none;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <div>
+              <label style="display: block; font-size: 12px; font-family: 'JetBrains Mono'; color: var(--muted); margin-bottom: 6px;">TARGET ICP / INDUSTRY</label>
+              <select name="industry" style="width: 100%; background: #060b18; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: #cbd5e1; font-size: 14px; outline: none;">
+                <option value="SaaS & Cloud Platforms">B2B SaaS / Software</option>
+                <option value="AI & Automation Studios">AI & Automation</option>
+                <option value="Custom Dev & IT Services">Software & IT Services</option>
+                <option value="Cybersecurity Solutions">Cybersecurity</option>
+                <option value="Other Technology">Other Tech Enterprise</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; font-size: 12px; font-family: 'JetBrains Mono'; color: var(--muted); margin-bottom: 6px;">TARGET DEAL VOLUME</label>
+              <select name="pipeline_target" style="width: 100%; background: #060b18; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: #cbd5e1; font-size: 14px; outline: none;">
+                <option value="5-10 Qualified Calls / mo">5–10 Qualified Meetings / mo</option>
+                <option value="10-25 Qualified Calls / mo">10–25 Qualified Meetings / mo</option>
+                <option value="25+ Enterprise Pipeline / mo">25+ Enterprise Meetings / mo</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 12px; font-family: 'JetBrains Mono'; color: var(--muted); margin-bottom: 6px;">PIPELINE PARAMETERS & REQUIREMENTS</label>
+            <textarea name="requirements" rows="4" placeholder="Mention target geography (e.g. US/UK), average deal size, or current outreach friction..." style="width: 100%; background: #060b18; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 14px; outline: none; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" style="background: #ffffff; color: #030712; padding: 14px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 25px rgba(255,255,255,0.25);">
+            Submit Requirements For Architecture Review ➔
+          </button>
+        </form>
+
+      </div>
+    </section>
+    
 
     <!-- Final Cinematic CTA -->
     <section style="padding: 70px 0; text-align: center; border-top: 1px solid var(--border);">
