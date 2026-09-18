@@ -3,269 +3,333 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexora Systems // Autonomous Pipeline Infrastructure</title>
+  <title>Nexora // Autonomous B2B Pipeline Infrastructure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #030712;
-      --bg-card: rgba(10, 16, 31, 0.7);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-active: rgba(56, 189, 248, 0.4);
-      --blue-accent: #38bdf8;
-      --indigo-accent: #6366f1;
-      --emerald-accent: #10b981;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg: #030712;
+      --card-bg: rgba(10, 16, 31, 0.75);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(56, 189, 248, 0.4);
+      --cyan: #38bdf8;
+      --blue: #3b82f6;
+      --indigo: #6366f1;
+      --emerald: #10b981;
+      --text: #f8fafc;
+      --muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-primary);
-      color: var(--text-main);
+      background-color: var(--bg);
+      color: var(--text);
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
       line-height: 1.6;
       background-image: 
-        radial-gradient(at 50% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-        radial-gradient(at 90% 40%, rgba(99, 102, 241, 0.08) 0px, transparent 40%),
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 45%),
         linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
     }
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
     header {
-      border-bottom: 1px solid var(--border-color);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(3, 7, 18, 0.75);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(3, 7, 18, 0.85);
     }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-    .logo-box { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 68px; }
     .logo-badge {
       width: 32px; height: 32px;
       background: linear-gradient(135deg, #0284c7, #6366f1);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; font-weight: 800; color: #fff;
+      border-radius: 8px; display: inline-flex;
+      align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; margin-right: 10px;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
-    .status-pill {
-      display: flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 100px;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--emerald-accent);
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 14px; border-radius: 100px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--emerald);
     }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald-accent); box-shadow: 0 0 10px var(--emerald-accent); }
-    .hero { padding: 80px 0 50px; text-align: center; }
+    .pulse-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--emerald); box-shadow: 0 0 8px var(--emerald);
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } }
+    .hero { padding: 80px 0 50px; text-align: center; position: relative; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 16px; border-radius: 100px;
-      background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2);
-      font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--blue-accent); margin-bottom: 24px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--cyan); margin-bottom: 24px;
     }
-    .hero h1 { font-size: clamp(32px, 5.5vw, 60px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 20px; }
-    .hero h1 span { background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: clamp(15px, 2vw, 18px); color: var(--text-muted); max-width: 680px; margin: 0 auto 36px; }
+    .hero h1 {
+      font-size: clamp(34px, 5.5vw, 64px);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 span {
+      background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: clamp(15px, 1.8vw, 18px); color: var(--muted);
+      max-width: 650px; margin: 0 auto 34px;
+    }
     .cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
-      background: #ffffff; color: #030712; padding: 14px 28px;
-      border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      background: #ffffff; color: #030712; padding: 14px 30px;
+      border-radius: 10px; font-weight: 700; font-size: 15px;
+      text-decoration: none; box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+      transition: all 0.2s ease;
     }
-    .hero-visual-card {
-      margin-top: 45px; background: var(--bg-card); border: 1px solid var(--border-color);
-      border-radius: 18px; padding: 20px; backdrop-filter: blur(16px);
-    }
-    .flow-steps { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .flow-step { flex: 1; min-width: 130px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px; text-align: left; }
-    .flow-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--blue-accent); margin-bottom: 4px; }
-    .flow-title { font-size: 13px; font-weight: 600; color: #f1f5f9; }
-    .flow-arrow { color: #475569; font-size: 14px; }
-    .section-header { text-align: center; margin: 70px 0 35px; }
-    .section-header h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
-    .section-header p { color: var(--text-muted); font-size: 14px; max-width: 580px; margin: 0 auto; }
-    .intelligence-table-card { background: #060b18; border: 1px solid #1e293b; border-radius: 14px; overflow: hidden; }
-    .table-top-bar { background: #0b1329; padding: 12px 18px; display: flex; justify-content: space-between; border-bottom: 1px solid #1e293b; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); }
-    .table-container { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; min-width: 500px; }
-    th { padding: 12px 16px; color: #64748b; font-family: 'JetBrains Mono', monospace; border-bottom: 1px solid #1e293b; }
-    td { padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: #cbd5e1; }
-    .tag-green { background: rgba(16, 185, 129, 0.1); color: var(--emerald-accent); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
-    .tag-blue { background: rgba(56, 189, 248, 0.1); color: var(--blue-accent); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
-    .sequence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 25px; }
-    .seq-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; }
-    .seq-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-accent); margin-bottom: 8px; display: block; }
-    .seq-card h3 { font-size: 16px; margin-bottom: 8px; }
-    .seq-card p { font-size: 13px; color: var(--text-muted); }
-    .handoff-box { margin: 70px 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 20px; text-align: center; }
-    .handoff-nodes { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
-    .h-node { background: #0d1527; border: 1px solid #1e293b; padding: 10px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; }
-    .h-node.active { border-color: var(--emerald-accent); color: #fff; box-shadow: 0 0 15px rgba(16, 185, 129, 0.15); }
-    .final-cta { padding: 70px 0; text-align: center; border-top: 1px solid var(--border-color); }
-    footer { border-top: 1px solid var(--border-color); padding: 24px 0; text-align: center; font-size: 11px; color: #64748b; font-family: 'JetBrains Mono', monospace; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 45px rgba(56, 189, 248, 0.5); }
+    .section-head { text-align: center; margin: 90px 0 40px; }
+    .section-head h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .section-head p { color: var(--muted); font-size: 15px; max-width: 580px; margin: 0 auto; }
   </style>
 </head>
 <body>
     <header>
     <div class="container nav-inner">
-      <div class="logo-box">
-        <div class="logo-badge">N</div>
-        <span>NEXORA</span>
+      <div style="display: flex; align-items: center; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">
+        <span class="logo-badge">N</span> NEXORA
       </div>
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        <span>OUTBOUND ACTIVE</span>
+      <div class="status-badge">
+        <span class="pulse-dot"></span> PIPELINE INFRASTRUCTURE ACTIVE
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- Hero Section -->
+    <!-- 1. Hero: Cinematic Network Visual -->
     <section class="hero">
-      <div class="hero-badge">B2B PIPELINE ACQUISITION ENGINE</div>
+      <div class="hero-badge">// B2B PIPELINE ACQUISITION INFRASTRUCTURE</div>
       <h1><span>Your Product Is Ready.</span><br>Now Build The Pipeline.</h1>
       <p>Nexora replaces uncoordinated outbound prospecting with continuous, highly targeted executive meetings delivered straight to your calendar.</p>
-      <a href="#pipeline" class="cta-btn">
-        Start Conversation ➔
-      </a>
+      <a href="#pipeline-flow" class="cta-btn">Build Your Pipeline →</a>
 
-      <!-- Visual Flow Engine -->
-      <div class="hero-visual-card">
-        <div class="flow-steps">
-          <div class="flow-step">
-            <div class="flow-tag">STEP 01</div>
-            <div class="flow-title">Target Ecosystems</div>
+      <!-- Visual Global Network Node Canvas -->
+      <div style="margin-top: 50px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 30px 16px; backdrop-filter: blur(20px); position: relative; overflow: hidden;">
+        
+        <!-- Live Node Signal Hub -->
+        <div style="display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px;">
+          <span>GLOBAL PROSPECT MATRIX</span>
+          <span style="color: var(--cyan);">LATENCY: 8ms // ACTIVE INGESTION</span>
+        </div>
+
+        <!-- Animated Floating Prospect Pills -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; text-align: left;">
+          <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-focus); border-radius: 12px; padding: 14px;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">
+              <span>VP Engineering @ Series-B SaaS</span>
+              <span style="color: var(--emerald); font-family: 'JetBrains Mono', monospace;">San Francisco</span>
+            </div>
+            <div style="font-size: 11px; color: var(--cyan); font-family: 'JetBrains Mono', monospace;">Trigger: 40+ Dev Hiring Ingestion</div>
           </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-tag">STEP 02</div>
-            <div class="flow-title">Decision Makers</div>
+          <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-focus); border-radius: 12px; padding: 14px;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">
+              <span>Chief Technology Officer @ AI Studio</span>
+              <span style="color: var(--emerald); font-family: 'JetBrains Mono', monospace;">London</span>
+            </div>
+            <div style="font-size: 11px; color: var(--cyan); font-family: 'JetBrains Mono', monospace;">Trigger: Architecture Modernization</div>
           </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-tag">STEP 03</div>
-            <div class="flow-title">Contextual Dialogue</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-tag">STEP 04</div>
-            <div class="flow-title">Direct Handoff</div>
+          <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-focus); border-radius: 12px; padding: 14px;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">
+              <span>Head of Product @ Cloud Sec</span>
+              <span style="color: var(--emerald); font-family: 'JetBrains Mono', monospace;">New York</span>
+            </div>
+            <div style="font-size: 11px; color: var(--cyan); font-family: 'JetBrains Mono', monospace;">Trigger: $18M Expansion Round</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Prospect Intelligence Section -->
-    <section id="pipeline">
-      <div class="section-header">
-        <h2>Live Prospect Intelligence</h2>
-        <p>Dynamic ICP filtering to target active buyers instead of cold contacts.</p>
+    <!-- 2. Interactive 8-Stage Execution Pipeline -->
+    <section id="pipeline-flow">
+      <div class="section-head">
+        <h2>The 8-Stage Pipeline Engine</h2>
+        <p>A deterministic execution framework that turns fragmented cold markets into confirmed revenue meetings.</p>
       </div>
 
-      <div class="intelligence-table-card">
-        <div class="table-top-bar">
-          <span>// PIPELINE TELEMETRY FEED</span>
-          <span style="color: var(--emerald-accent);">IDENTIFY → VERIFY → APPROACH</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 01</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">Company Discovery</h4>
+          <p style="color: var(--muted); font-size: 12px;">Real-time scraping of funding announcements, tech stacks, and active pain vectors.</p>
         </div>
-        <div class="table-container">
-          <table>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 02</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">ICP Matching</h4>
+          <p style="color: var(--muted); font-size: 12px;">Mathematical filtering to ensure accounts strictly match your unit economics.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 03</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">Decision-Maker Isolation</h4>
+          <p style="color: var(--muted); font-size: 12px;">Identifying the exact C-Suite budget owner who holds direct purchasing power.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 04</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">MX Data Verification</h4>
+          <p style="color: var(--muted); font-size: 12px;">Multi-layer SMTP handshake protocols to guarantee zero bounce rates.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--indigo); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 05</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">Personalized Angles</h4>
+          <p style="color: var(--muted); font-size: 12px;">Dynamic context synthesis addressing active corporate initiatives.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--indigo); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 06</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">Smart Follow-ups</h4>
+          <p style="color: var(--muted); font-size: 12px;">Value-led multi-touch sequences timed for peak executive response rates.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <span style="color: var(--emerald); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 07</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px;">Qualified Opportunity</h4>
+          <p style="color: var(--muted); font-size: 12px;">Filtering positive replies to verify intent, timeline, and budget availability.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--emerald); border-radius: 10px; padding: 16px; box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);">
+          <span style="color: var(--emerald); font-family: 'JetBrains Mono', monospace; font-size: 11px;">STAGE 08</span>
+          <h4 style="margin: 4px 0 6px; font-size: 14px; color: #fff;">Client Handoff</h4>
+          <p style="color: var(--muted); font-size: 12px;">Direct calendar synchronization right to your team's consultation calls.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Dynamic Prospect Intelligence UI Demo -->
+    <section>
+      <div class="section-head">
+        <h2>Prospect Intelligence Feed</h2>
+        <p>Live demo interface simulating real-time prospect telemetry.</p>
+      </div>
+
+      <div style="background: #060b17; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.6);">
+        <div style="background: #0c1427; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 11px;">
+          <span style="color: var(--muted);">NEXORA // PROSPECT INTELLIGENCE DEMO</span>
+          <span style="color: var(--emerald);">IDENTIFY ➔ VERIFY ➔ APPROACH</span>
+        </div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; min-width: 550px;">
             <thead>
-              <tr>
-                <th>TARGET COMPANY</th>
-                <th>FIT SCORE</th>
-                <th>BUYING SIGNAL</th>
-                <th>DECISION MAKER</th>
-                <th>STATUS</th>
+              <tr style="border-bottom: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #64748b;">
+                <th style="padding: 14px 18px;">COMPANY</th>
+                <th style="padding: 14px 18px;">FIT SCORE</th>
+                <th style="padding: 14px 18px;">TRIGGER EVENT</th>
+                <th style="padding: 14px 18px;">DECISION MAKER</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>CloudScale Inc.</strong></td>
-                <td><span class="tag-green">96%</span></td>
-                <td>Series A Expansion</td>
-                <td>VP of Engineering</td>
-                <td><span class="tag-blue">Active Sequence</span></td>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 14px 18px; font-weight: 600; color: #fff;">Acme Software</td>
+                <td style="padding: 14px 18px;"><span style="color: var(--emerald); background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace;">94%</span></td>
+                <td style="padding: 14px 18px; color: var(--muted);">Hiring Dev Teams</td>
+                <td style="padding: 14px 18px; color: var(--cyan);">Chief Executive Officer</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 14px 18px; font-weight: 600; color: #fff;">Vertex Labs</td>
+                <td style="padding: 14px 18px;"><span style="color: var(--emerald); background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace;">91%</span></td>
+                <td style="padding: 14px 18px; color: var(--muted);">Infrastructure Expansion</td>
+                <td style="padding: 14px 18px; color: var(--cyan);">Founder & CTO</td>
               </tr>
               <tr>
-                <td><strong>Apex Logic Labs</strong></td>
-                <td><span class="tag-green">93%</span></td>
-                <td>Dev Hiring Surge</td>
-                <td>Chief Technology Officer</td>
-                <td><span class="tag-blue">Handshake Verified</span></td>
-              </tr>
-              <tr>
-                <td><strong>DataVanguard</strong></td>
-                <td><span class="tag-green">89%</span></td>
-                <td>Infrastructure Shift</td>
-                <td>Head of Product</td>
-                <td><span class="tag-blue">Conversation Open</span></td>
+                <td style="padding: 14px 18px; font-weight: 600; color: #fff;">Northstar AI</td>
+                <td style="padding: 14px 18px;"><span style="color: var(--emerald); background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace;">89%</span></td>
+                <td style="padding: 14px 18px; color: var(--muted);">Seed Round Announced</td>
+                <td style="padding: 14px 18px; color: var(--cyan);">Chief Operating Officer</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
-        <!-- Orchestrator Sequence -->
+        <!-- 4. Outreach Cadence Sequence -->
     <section>
-      <div class="section-header">
+      <div class="section-head">
         <h2>We Don't Just Find Contacts.<br>We Create Conversations.</h2>
-        <p>A deterministic execution stack that turns cold tech markets into qualified sales pipeline.</p>
+        <p>A calculated multi-channel framework designed to trigger genuine interest from busy leadership.</p>
       </div>
 
-      <div class="sequence-grid">
-        <div class="seq-card">
-          <span class="seq-num">SEQUENCE // 01</span>
-          <h3>Hyper-Contextual Mapping</h3>
-          <p>Every account is verified against live tech stacks, corporate initiatives, and verified budget ownership before any message is queued.</p>
-        </div>
-
-        <div class="seq-card">
-          <span class="seq-num">SEQUENCE // 02</span>
-          <h3>Zero-Spam Placement</h3>
-          <p>Custom MX authentication setups guarantee your brand’s authority and protect your primary domain reputation permanently.</p>
-        </div>
-
-        <div class="seq-card">
-          <span class="seq-num">SEQUENCE // 03</span>
-          <h3>Structured Conversion</h3>
-          <p>Multi-touch follow-ups engineered specifically for B2B executives without generic templates or copy-paste pitches.</p>
+      <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px;">
+          <div style="background: #080d1a; border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px;">01. LinkedIn Touchpoint</div>
+          <span style="color: var(--cyan);">➔</span>
+          <div style="background: #080d1a; border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px;">02. Contextual Email</div>
+          <span style="color: var(--cyan);">➔</span>
+          <div style="background: #080d1a; border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px;">03. Value Follow-up #1</div>
+          <span style="color: var(--cyan);">➔</span>
+          <div style="background: #080d1a; border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px;">04. Value Follow-up #2</div>
+          <span style="color: var(--emerald);">➔</span>
+          <div style="background: #080d1a; border: 1px solid var(--emerald); color: #fff; padding: 10px 14px; border-radius: 8px;">05. Reply Received & Qualified</div>
         </div>
       </div>
     </section>
 
-    <!-- Pipeline Handoff Section -->
-    <section class="handoff-box">
-      <h3 style="font-size: 20px; margin-bottom: 8px;">The Closed-Loop Handoff Model</h3>
-      <p style="color: var(--text-muted); font-size: 13px; max-width: 550px; margin: 0 auto;">Nexora handles everything from data extraction to qualification. You only step in when it's time to demo and close.</p>
+    <!-- 5. Industry Fit Section -->
+    <section>
+      <div class="section-head">
+        <h2>Built For High-Value B2B Sales</h2>
+        <p>Optimized for companies offering specialized, high-ticket technology and services.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+          <h4 style="font-size: 16px; margin-bottom: 6px; color: #fff;">SaaS Platforms</h4>
+          <p style="font-size: 13px; color: var(--muted);">Targeting VP & Director roles ready to trial modern software solutions.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+          <h4 style="font-size: 16px; margin-bottom: 6px; color: #fff;">AI & Automation</h4>
+          <p style="font-size: 13px; color: var(--muted);">Connecting ML infrastructure directly to operational decision-makers.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+          <h4 style="font-size: 16px; margin-bottom: 6px; color: #fff;">Software & IT Studios</h4>
+          <p style="font-size: 13px; color: var(--muted);">Securing dedicated software development contracts with funded companies.</p>
+        </div>
+        <div style="background: #080d1a; border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+          <h4 style="font-size: 16px; margin-bottom: 6px; color: #fff;">Cybersecurity</h4>
+          <p style="font-size: 13px; color: var(--muted);">Direct access to CISOs looking for continuous vulnerability and compliance audits.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Closed-Loop Handoff Model -->
+    <section style="margin: 80px 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(3, 7, 18, 0.95) 100%); border: 1px solid var(--border); border-radius: 18px; padding: 36px 20px; text-align: center;">
+      <h3 style="font-size: 22px; margin-bottom: 10px;">The Closed-Loop Handoff Model</h3>
+      <p style="color: var(--muted); font-size: 14px; max-width: 520px; margin: 0 auto;">Nexora handles everything up to the qualified opportunity. Your team focuses entirely on closing.</p>
       
-      <div class="handoff-nodes">
-        <div class="h-node">Nexora Engine</div>
-        <span style="color: #475569;">➔</span>
-        <div class="h-node">Verified Meeting</div>
-        <span style="color: #475569;">➔</span>
-        <div class="h-node active">Your Sales Call</div>
-        <span style="color: #475569;">➔</span>
-        <div class="h-node">Closed Deal</div>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
+        <div style="background: #0d1527; border: 1px solid var(--border); padding: 12px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;">Nexora Engine</div>
+        <span style="color: var(--muted);">➔</span>
+        <div style="background: #0d1527; border: 1px solid var(--border); padding: 12px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;">Qualified Lead</div>
+        <span style="color: var(--muted);">➔</span>
+        <div style="background: #0d1527; border: 1px solid var(--emerald); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); padding: 12px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; color: #fff;">Your Sales Demo</div>
+        <span style="color: var(--muted);">➔</span>
+        <div style="background: #0d1527; border: 1px solid var(--border); padding: 12px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;">Closed Deal</div>
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-      <h2 style="font-size: clamp(26px, 4vw, 38px); margin-bottom: 14px;">You built the product.<br>We'll help build the pipeline.</h2>
-      <p style="color: var(--text-muted); margin-bottom: 28px;">Ready to install outbound acquisition infrastructure?</p>
-      <a href="mailto:contact@nexora.com" class="cta-btn">Book Architecture Evaluation →</a>
+    <!-- 7. Final Cinematic CTA -->
+    <section style="padding: 70px 0; text-align: center; border-top: 1px solid var(--border);">
+      <h2 style="font-size: clamp(28px, 4.2vw, 42px); margin-bottom: 14px;">You built the product.<br>We'll help build the pipeline.</h2>
+      <p style="color: var(--muted); margin-bottom: 30px;">Ready to install autonomous outbound acquisition infrastructure?</p>
+      <a href="mailto:contact@nexora.com" class="cta-btn">Start a Conversation →</a>
     </section>
   </main>
 
-  <footer>
+  <footer style="border-top: 1px solid var(--border); padding: 24px 0; text-align: center; font-size: 11px; color: #64748b; font-family: 'JetBrains Mono', monospace;">
     <div class="container">
-      © 2026 NEXORA SYSTEMS. PROPRIETARY PIPELINE INFRASTRUCTURE.
+      © 2025 NEXORA SYSTEMS. PROPRIETARY B2B PIPELINE INFRASTRUCTURE.
     </div>
   </footer>
 
 </body>
 </html>
-
